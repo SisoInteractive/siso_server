@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/*  page 404 */
+.wrap-404 {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.wrap-404 h1 {
+  font-size: 48px;
+}
+
+.wrap-404 p {
+  color: #333;
+}
