@@ -1,0 +1,22 @@
+<div class="ui container segment login">
+    <form class="ui form">
+        <h2><%= state.title %></h2>
+        <div class="field">
+            <label>账号</label>
+            <input type="text" name="name" placeholder="Email">
+        </div>
+        <div class="field">
+            <label>密码</label>
+            <input type="password" name="pass" placeholder="Password">
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <label>7天内免登录</label>
+            </div>
+        </div>
+        <button class="ui primary button btn-submit" type="submit">登录</button>
+        <div class="ui error message"></div>
+    </form>
+</div>
+

@@ -1,0 +1,42 @@
+.entry {
+  .title {
+    font-size: 22px;
+  }
+
+  .textarea {
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+    min-height: 400px;
+    padding: 20px;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    text-align: left;
+    line-height: 1.5em;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid rgba(34,36,38,.15);
+    color: rgba(0,0,0,.87);
+    border-radius: .28571429rem;
+    -webkit-transition: box-shadow .1s ease,border-color .1s ease;
+    transition: box-shadow .1s ease,border-color .1s ease;
+    box-shadow: none
+  }
+
+  .textarea:focus {
+    border-color: #85b7d9;
+    background: #fff;
+    color: rgba(0,0,0,.8);
+    box-shadow: none;
+    resize: none;
+  }
+
+  .file {
+    font-size: 16px;
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}

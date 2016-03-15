@@ -1,7 +1,7 @@
 exports.notfound = function (req, res) {
     res.status(404).format({
         html: function () {
-            res.render('404');
+            res.render('404', { state: { state: 404 } });
         },
         json: function () {
             res.send({ message: 'Resource not found.'});
@@ -40,7 +40,7 @@ exports.error = function (err, req, res, next) {
 
     res.format({
         html: function () {
-            res.render('5xx', { msg:msg, status: res.statusCode });
+            res.render('5xx', { msg:msg, status: res.statusCode, state: { state: res.statusCode } });
         },
 
         json: function () {

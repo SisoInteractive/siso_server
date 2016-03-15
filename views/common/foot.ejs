@@ -1,0 +1,16 @@
+<script src="/scripts/jquery-2.1.3.min.js"></script>
+<script src="/scripts/semantic.js"></script>
+<script src="/scripts/main.js"></script>
+<!-- loaded when need -->
+<% if (state.state == 'home') { %>
+<script src="/scripts/home.js"></script>
+<% }%>
+<% if (state.state == 'admin') { %>
+<script src="/scripts/admin.js"></script>
+<% }%>
+<% if (state.state == 'entry') { %>
+<script src="/scripts/entry.js"></script>
+<% }%>
+<% if (state.state == 'user.login') { %>
+<script src="/scripts/login.js"></script>
+<% }%>

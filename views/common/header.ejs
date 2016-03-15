@@ -1,1 +1,46 @@
-<link rel="stylesheet" href="./stylesheets/style.css">
+<!-- header -->
+<header class="header">
+    <div class="header-bd">
+        <!-- logo -->
+        <a class="logo" href="/">官网内容管理系统</a>
+        <!-- end logo -->
+
+        <!-- nav -->
+        <nav class="nav">
+            <a href="/admin?column=case" class="<% if (state.state == 'admin') { %>active<% } %>">文章管理</a>
+            <a href="/entry?column=case" class="<% if (state.state == 'entry') { %>active<% } %>">创建文章</a>
+        </nav>
+        <!-- end nav -->
+
+        <!-- search -->
+        <div class="search">
+            <button class="search-btn"></button>
+        </div>
+
+        <div class="header-search hide">
+            <div class="accelerate">
+                <div class="header-search-bd">
+                    <div class="tab">
+                        <span>按日期</span>
+                        <span class="active">按项目名称</span>
+                        <span>按负责人</span>
+                    </div>
+                    <div class="search-bar">
+                        <input class="input search-bar-txt" type="text"/>
+                        <button class="btn search-bar-btn">开始搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end search -->
+
+        <!-- user -->
+        <div class="user">
+            <div class="user-signed">
+                <a href=""><span>春天大鸽子</span></a>
+            </div>
+        </div>
+        <!-- end user -->
+    </div>
+</header>
+<!-- end header -->

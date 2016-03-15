@@ -1,34 +1,50 @@
-var express = require('express');
-var router = express.Router();
-//  routes
-var index = require('./index');
-var entry = require('./entry');
-var admin = require('./admin');
-var user = require('./user');
-var login = require('./login');
-var api = require('./api');
+module.exports = function (app) {
+    var express = require('express');
+    var router = express.Router();
+    //  routes
+    var index = require('./index');
+    var entry = require('./entry');
+    var admin = require('./admin');
+    var user = require('./user');
+    var login = require('./login');
+    var api = require('./api');
 
-//  home
-router.get('/', index.home);
+    //  dependencies
+    var page = require('../lib/page');
+    var Entry = require('../controllers/entry');
 
-//  entry
-router.get('/entry/', entry.form);
-router.post('/entry/', entry.submit);
-router.put('/entry/:id', entry.update);
-router.delete('/entry/:id', entry.delete);
+    //  global
+    router.all('/', function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    });
 
-//  admin
-router.get('/admin/', admin.list);
+    //  home
+    router.get('/', index.home);
 
-//  user
-router.get('/user', user.home);
-router.put('/user', user.update);
+    //  entry
+    router.get('/entry', entry.form);
+    router.get('/entry/:id', entry.editForm);
+    router.post('/entry', entry.submit(app));
+    router.put('/entry/:id', entry.update(app));
+    router.delete('/entry/:id', entry.delete(app));
 
-//  login
-router.get('/login', login.form);
-router.post('/login', login.submit);
+    //  admin
+    router.get('/admin', page(Entry.count), admin.list);
 
-//  api
-router.get('/api/v1/:column', api.list);
+    //  user
+    router.get('/user', user.home);
+    router.get('/user/login', user.loginForm);
+    router.post('/user/login', user.loginSubmit);
+    router.put('/user', user.update);
 
-module.exports = router;
+    //  login
+    router.get('/login', login.form);
+    router.post('/login', login.submit);
+
+    //  api
+    router.get('/api/v1/:column', api.list);
+
+    return router;
+};
+

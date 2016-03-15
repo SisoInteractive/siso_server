@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta content="telephone=no" name="format-detection">
+<meta content="maximum-dpr=2" name="flexible" />
+<meta name="apple-touch-fullscreen" content="no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+<!-- base -->
+<link rel="stylesheet" href="/stylesheets/semantic.css"/>
+<link rel="stylesheet" href="/stylesheets/main.css"/>
+
+<!-- loaded when need -->
+<% if (state.state == 'home') { %>
+    <link rel="stylesheet" href="/stylesheets/home.css"/>
+<% }%>
+<% if (state.state == 'admin') { %>
+    <link rel="stylesheet" href="/stylesheets/admin.css"/>
+<% }%>
+<% if (state.state == 'entry') { %>
+    <link rel="stylesheet" href="/stylesheets/create.css"/>
+<% }%>
+<% if (state.state.indexOf('user') >= 0) { %>
+    <link rel="stylesheet" href="/stylesheets/user.css"/>
+<% }%>

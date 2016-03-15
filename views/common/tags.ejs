@@ -1,0 +1,7 @@
+<h1><%= title %>:&nbsp;<a href="<%= topic.url %>"><%= topic.text %></a></h1>
+<h3>
+    切换栏目:
+    <% tags.forEach(function (tag) { %>
+        <a href="<%= tag.url %>"><%= tag.text %></a>&nbsp;&nbsp;
+    <% }) %>
+</h3>

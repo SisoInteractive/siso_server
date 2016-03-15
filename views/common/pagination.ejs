@@ -1,0 +1,58 @@
+<% if (page.count >= 2) { %>
+    <div class="ui right floated pagination menu">
+    </div>
+
+    <script>
+        function pagination (page) {
+            var dom = '';
+
+            if (page.count >= 2) {
+                if (page.number > 1) {
+                    dom += '<a class="icon item" href="/<%= state.state %>?column=<%= page.column %>&page=<%= page.number-1 %>"><i class="left chevron icon"></i></a>';
+                }
+
+                if (page.count < page.pergroup) {
+                    createNumbers(1, page.count);
+                }
+
+                if (page.count > page.pergroup) {
+                    var start;
+                    var end;
+
+                    if (page.number < page.pergroup/2) {
+                        start = 1;
+                        end = page.pergroup;
+                    } else if (page.number > page.count - page.pergroup/2-1) {
+                        start = page.count - page.pergroup+1;
+                        end = page.count;
+                    } else {
+                        start = (page.number) - page.pergroup/2 + 1;
+                        end = (page.number) + page.pergroup/2;
+                        end = end <= page.count ? end : page.count;
+                    }
+
+                    createNumbers(start, end);
+                }
+
+                if (page.number < page.count) {
+                    dom += '<a class="icon item" href="/<%= state.state %>?column=<%= page.column %>&page=<%= page.number+1 %>"><i class="right chevron icon"></i></a>';
+                }
+
+                document.getElementsByClassName('pagination')[0].innerHTML = dom;
+            }
+
+            function createNumbers (start, end) {
+                for (var i = start; i <= end; i++) {
+                    if (i == page.number) {
+                        dom += '<a class="item active" href="/<%= state.state %>?column=<%= page.column %>&page=' + i + '">' + i + '</a>';
+                    } else {
+                        dom += '<a class="item" href="/<%= state.state %>?column=<%= page.column %>&page=' + i + '">' + i + '</a>';
+                    }
+                }
+            }
+        }
+
+        pagination(JSON.parse('<%- page.toString() %>'));
+    </script>
+<% } %>
+

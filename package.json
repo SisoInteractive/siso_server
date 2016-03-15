@@ -12,7 +12,13 @@
     "debug": "~2.2.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
+    "form-data": "^1.0.0-rc3",
+    "formidable": "^1.0.17",
+    "method-override": "^2.3.5",
+    "mocha": "^2.4.5",
+    "mongoose": "^4.4.6",
     "morgan": "~1.6.1",
+    "request": "^2.69.0",
     "serve-favicon": "~2.3.0"
   }
 }

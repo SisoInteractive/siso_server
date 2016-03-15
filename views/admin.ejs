@@ -1,0 +1,28 @@
+<% include common/tags.ejs %>
+
+<table class="ui celled table entry-list">
+    <thead>
+    <tr><th>发布时间</th>
+        <th width="60%">主题</th>
+        <th width="25%">操作</th>
+    </tr></thead>
+    <tbody>
+    <% entries.forEach(function (entry){ %>
+        <tr>
+            <td><%= entry.formatedDate %></td>
+            <td><a href=""><%= entry.title %></a></td>
+            <td>
+                <a class="ui blue basic button" href="/entry/<%= entry._id %>?column=<%= entry.type %>&status=edit">编辑</a>
+                <a class="ui blue basic button" href="/entry/<%= entry._id %>">置顶</a>
+                <button class="ui red basic button entry-delete" data-href="/entry/<%= entry._id %>?column=<%= entry.type %>">删除</button>
+            </td>
+        </tr>
+    <% })%>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="3">
+            <% include common/pagination.ejs %>
+        </th>
+    </tr></tfoot>
+</table>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title></title>
+    <% include common/head.ejs %>
+</head>
+<body>
+    <% include common/header.ejs %>
+
+    <div class="main ui container">
+        <% if (state.state == 'admin') { %>
+            <% include admin.ejs %>
+        <% }%>
+        <% if (state.state == 'entry') { %>
+            <% include entry.ejs %>
+        <% }%>
+        <% if (state.state == 'user.login') { %>
+        <% include login.ejs %>
+        <% }%>
+    </div>
+
+    <% include common/footer.ejs %>
+    <% include common/foot.ejs %>
+</body>
+</html>
