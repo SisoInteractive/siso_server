@@ -1,3 +1,5 @@
+var auth = require('../lib/middleware/auth');
+
 module.exports = function (app) {
     var express = require('express');
     var router = express.Router();
@@ -13,14 +15,8 @@ module.exports = function (app) {
     var page = require('../lib/page');
     var Entry = require('../controllers/entry');
 
-    //  global
-    router.all('/', function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    });
-
-    //  home
-    router.get('/', index.home);
+    //  restrict login
+    router.all(/^((?!\/user\/login).)*$/, auth.restrict);
 
     //  entry
     router.get('/entry', entry.form);
@@ -36,6 +32,7 @@ module.exports = function (app) {
     router.get('/user', user.home);
     router.get('/user/login', user.loginForm);
     router.post('/user/login', user.loginSubmit);
+    router.get('/user/logout', user.logout);
     router.put('/user', user.update);
 
     //  login
@@ -44,6 +41,9 @@ module.exports = function (app) {
 
     //  api
     router.get('/api/v1/:column', api.list);
+
+    //  home
+    router.get('/', index.home);
 
     return router;
 };

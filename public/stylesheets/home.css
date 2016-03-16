@@ -1,0 +1,9 @@
+.fast-entry h2 {
+  text-align: center;
+  padding: 20px;
+}
+.fast-entry h2 .icon {
+  font-size: 30px;
+  vertical-align: bottom;
+  margin-right: 5px;
+}

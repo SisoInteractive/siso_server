@@ -1981,3 +1981,271 @@
 2016-03-15T12:14:10.459+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51605 #6 (1 connection now open)
 2016-03-15T13:50:51.620+0800 I NETWORK  [conn6] end connection 127.0.0.1:51605 (0 connections now open)
 2016-03-15T13:50:55.481+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52389 #7 (1 connection now open)
+2214:C 15 Mar 14:29:41.183 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 2214
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+2214:M 15 Mar 14:29:41.272 # Server started, Redis version 3.0.7
+2214:M 15 Mar 14:29:41.273 * The server is now ready to accept connections on port 6379
+2214:M 15 Mar 15:29:42.071 * 1 changes in 3600 seconds. Saving...
+2214:M 15 Mar 15:29:42.111 * Background saving started by pid 2717
+2717:C 15 Mar 15:29:42.149 * DB saved on disk
+2214:M 15 Mar 15:29:42.215 * Background saving terminated with success
+2214:M 15 Mar 16:29:43.033 * 1 changes in 3600 seconds. Saving...
+2214:M 15 Mar 16:29:43.080 * Background saving started by pid 3084
+3084:C 15 Mar 16:29:43.156 * DB saved on disk
+2214:M 15 Mar 16:29:43.184 * Background saving terminated with success
+2214:M 15 Mar 17:26:19.117 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 17:26:19.156 * Background saving started by pid 3651
+3651:C 15 Mar 17:26:19.250 * DB saved on disk
+2214:M 15 Mar 17:26:19.260 * Background saving terminated with success
+2214:M 15 Mar 17:31:20.074 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 17:31:20.074 * Background saving started by pid 3666
+3666:C 15 Mar 17:31:20.075 * DB saved on disk
+2214:M 15 Mar 17:31:20.178 * Background saving terminated with success
+2214:M 15 Mar 17:51:28.301 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 17:51:28.302 * Background saving started by pid 3764
+3764:C 15 Mar 17:51:28.303 * DB saved on disk
+2214:M 15 Mar 17:51:28.407 * Background saving terminated with success
+2214:M 15 Mar 18:10:46.040 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 18:10:46.066 * Background saving started by pid 3825
+3825:C 15 Mar 18:10:46.076 * DB saved on disk
+2214:M 15 Mar 18:10:46.168 * Background saving terminated with success
+2214:M 15 Mar 18:15:47.095 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 18:15:47.178 * Background saving started by pid 3837
+3837:C 15 Mar 18:15:47.207 * DB saved on disk
+2214:M 15 Mar 18:15:47.282 * Background saving terminated with success
+2214:M 15 Mar 18:23:03.450 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 18:23:03.450 * Background saving started by pid 3862
+3862:C 15 Mar 18:23:03.531 * DB saved on disk
+2214:M 15 Mar 18:23:03.553 * Background saving terminated with success
+2214:M 15 Mar 19:23:04.071 * 1 changes in 3600 seconds. Saving...
+2214:M 15 Mar 19:23:04.071 * Background saving started by pid 4026
+4026:C 15 Mar 19:23:04.072 * DB saved on disk
+2214:M 15 Mar 19:23:04.176 * Background saving terminated with success
+2214:M 15 Mar 19:33:48.891 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 19:33:48.891 * Background saving started by pid 4145
+4145:C 15 Mar 19:33:48.892 * DB saved on disk
+2214:M 15 Mar 19:33:48.993 * Background saving terminated with success
+2214:M 15 Mar 19:38:49.018 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 19:38:49.019 * Background saving started by pid 4204
+4204:C 15 Mar 19:38:49.020 * DB saved on disk
+2214:M 15 Mar 19:38:49.123 * Background saving terminated with success
+2214:M 15 Mar 19:45:00.653 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 19:45:00.654 * Background saving started by pid 4284
+4284:C 15 Mar 19:45:00.661 * DB saved on disk
+2214:M 15 Mar 19:45:00.757 * Background saving terminated with success
+2214:M 15 Mar 19:50:01.004 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 19:50:01.005 * Background saving started by pid 4305
+4305:C 15 Mar 19:50:01.006 * DB saved on disk
+2214:M 15 Mar 19:50:01.109 * Background saving terminated with success
+2214:M 15 Mar 19:55:02.069 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 19:55:02.069 * Background saving started by pid 4359
+4359:C 15 Mar 19:55:02.070 * DB saved on disk
+2214:M 15 Mar 19:55:02.173 * Background saving terminated with success
+2214:M 15 Mar 20:01:20.438 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:01:20.439 * Background saving started by pid 4403
+4403:C 15 Mar 20:01:20.440 * DB saved on disk
+2214:M 15 Mar 20:01:20.551 * Background saving terminated with success
+2214:M 15 Mar 20:06:21.032 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:06:21.089 * Background saving started by pid 4515
+4515:C 15 Mar 20:06:21.107 * DB saved on disk
+2214:M 15 Mar 20:06:21.190 * Background saving terminated with success
+2214:M 15 Mar 20:11:22.089 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:11:22.089 * Background saving started by pid 4558
+4558:C 15 Mar 20:11:22.090 * DB saved on disk
+2214:M 15 Mar 20:11:22.194 * Background saving terminated with success
+2214:M 15 Mar 20:21:27.218 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:21:27.221 * Background saving started by pid 4654
+4654:C 15 Mar 20:21:27.241 * DB saved on disk
+2214:M 15 Mar 20:21:27.325 * Background saving terminated with success
+2214:M 15 Mar 20:26:28.069 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:26:28.069 * Background saving started by pid 4717
+4717:C 15 Mar 20:26:28.093 * DB saved on disk
+2214:M 15 Mar 20:26:28.174 * Background saving terminated with success
+2214:M 15 Mar 20:31:29.034 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:31:29.035 * Background saving started by pid 4749
+4749:C 15 Mar 20:31:29.036 * DB saved on disk
+2214:M 15 Mar 20:31:29.139 * Background saving terminated with success
+2214:M 15 Mar 20:44:55.476 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:44:55.479 * Background saving started by pid 4791
+4791:C 15 Mar 20:44:55.531 * DB saved on disk
+2214:M 15 Mar 20:44:55.583 * Background saving terminated with success
+2214:M 15 Mar 20:49:56.049 * 100 changes in 300 seconds. Saving...
+2214:M 15 Mar 20:49:56.050 * Background saving started by pid 4794
+4794:C 15 Mar 20:49:56.212 * DB saved on disk
+2214:M 15 Mar 20:49:56.257 * Background saving terminated with success
+2016-03-16T11:40:17.293+0800 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-16T11:40:17.321+0800 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-16T11:40:17.321+0800 I JOURNAL  [initandlisten] recover begin
+2016-03-16T11:40:17.327+0800 I JOURNAL  [initandlisten] recover lsn: 0
+2016-03-16T11:40:17.328+0800 I JOURNAL  [initandlisten] recover /data/db/journal/j._0
+2016-03-16T11:40:17.363+0800 I JOURNAL  [initandlisten] recover cleaning up
+2016-03-16T11:40:17.363+0800 I JOURNAL  [initandlisten] removeJournalFiles
+2016-03-16T11:40:17.363+0800 I JOURNAL  [initandlisten] recover done
+2016-03-16T11:40:17.383+0800 I JOURNAL  [durability] Durability thread started
+2016-03-16T11:40:17.383+0800 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-16T11:40:17.383+0800 I CONTROL  [initandlisten] MongoDB starting : pid=649 port=27017 dbpath=/data/db 64-bit host=Qiangs-Mac-mini.local
+2016-03-16T11:40:17.383+0800 I CONTROL  [initandlisten] db version v3.0.3
+2016-03-16T11:40:17.383+0800 I CONTROL  [initandlisten] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2016-03-16T11:40:17.383+0800 I CONTROL  [initandlisten] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-16T11:40:17.383+0800 I CONTROL  [initandlisten] allocator: system
+2016-03-16T11:40:17.383+0800 I CONTROL  [initandlisten] options: {}
+2016-03-16T11:40:20.882+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+666:C 16 Mar 11:40:24.486 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 666
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+666:M 16 Mar 11:40:24.492 # Server started, Redis version 3.0.7
+666:M 16 Mar 11:40:24.517 * DB loaded from disk: 0.025 seconds
+666:M 16 Mar 11:40:24.517 * The server is now ready to accept connections on port 6379
+2016-03-16T11:43:06.874+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49832 #1 (1 connection now open)
+666:M 16 Mar 12:02:39.715 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 12:02:39.850 * Background saving started by pid 889
+889:C 16 Mar 12:02:40.185 * DB saved on disk
+666:M 16 Mar 12:02:40.265 * Background saving terminated with success
+666:M 16 Mar 12:07:41.076 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 12:07:41.077 * Background saving started by pid 912
+912:C 16 Mar 12:07:41.078 * DB saved on disk
+666:M 16 Mar 12:07:41.180 * Background saving terminated with success
+666:M 16 Mar 12:20:23.892 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 12:20:23.892 * Background saving started by pid 954
+954:C 16 Mar 12:20:23.895 * DB saved on disk
+666:M 16 Mar 12:20:23.994 * Background saving terminated with success
+2016-03-16T12:20:49.863+0800 I NETWORK  [conn1] end connection 127.0.0.1:49832 (0 connections now open)
+2016-03-16T12:21:34.734+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50742 #2 (1 connection now open)
+2016-03-16T12:24:02.309+0800 I NETWORK  [conn2] end connection 127.0.0.1:50742 (0 connections now open)
+2016-03-16T12:59:35.476+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51014 #3 (1 connection now open)
+666:M 16 Mar 12:59:42.448 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 12:59:42.448 * Background saving started by pid 1257
+1257:C 16 Mar 12:59:42.449 * DB saved on disk
+666:M 16 Mar 12:59:42.553 * Background saving terminated with success
+2016-03-16T13:07:49.154+0800 I NETWORK  [conn3] end connection 127.0.0.1:51014 (0 connections now open)
+2016-03-16T13:07:51.079+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51050 #4 (1 connection now open)
+2016-03-16T13:09:33.007+0800 I NETWORK  [conn4] end connection 127.0.0.1:51050 (0 connections now open)
+2016-03-16T13:09:34.336+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51061 #5 (1 connection now open)
+666:M 16 Mar 13:09:41.781 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 13:09:41.781 * Background saving started by pid 1310
+1310:C 16 Mar 13:09:41.783 * DB saved on disk
+666:M 16 Mar 13:09:41.886 * Background saving terminated with success
+2016-03-16T13:12:11.187+0800 I NETWORK  [conn5] end connection 127.0.0.1:51061 (0 connections now open)
+2016-03-16T13:12:12.268+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51121 #6 (1 connection now open)
+2016-03-16T13:12:32.835+0800 I NETWORK  [conn6] end connection 127.0.0.1:51121 (0 connections now open)
+2016-03-16T13:12:33.857+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51130 #7 (1 connection now open)
+666:M 16 Mar 13:14:42.027 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 13:14:42.028 * Background saving started by pid 1358
+1358:C 16 Mar 13:14:42.029 * DB saved on disk
+666:M 16 Mar 13:14:42.132 * Background saving terminated with success
+2016-03-16T13:23:00.157+0800 I NETWORK  [conn7] end connection 127.0.0.1:51130 (0 connections now open)
+2016-03-16T13:23:05.061+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51492 #8 (1 connection now open)
+666:M 16 Mar 13:23:50.148 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 13:23:50.148 * Background saving started by pid 1415
+1415:C 16 Mar 13:23:50.150 * DB saved on disk
+666:M 16 Mar 13:23:50.253 * Background saving terminated with success
+2016-03-16T13:24:16.030+0800 I NETWORK  [conn8] end connection 127.0.0.1:51492 (0 connections now open)
+2016-03-16T13:24:17.077+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51504 #9 (1 connection now open)
+2016-03-16T13:24:19.073+0800 I NETWORK  [conn9] end connection 127.0.0.1:51504 (0 connections now open)
+2016-03-16T13:24:29.229+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51516 #10 (1 connection now open)
+2016-03-16T13:25:05.484+0800 I NETWORK  [conn10] end connection 127.0.0.1:51516 (0 connections now open)
+2016-03-16T13:25:06.626+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51525 #11 (1 connection now open)
+666:M 16 Mar 13:28:51.002 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 13:28:51.046 * Background saving started by pid 1483
+1483:C 16 Mar 13:28:51.047 * DB saved on disk
+666:M 16 Mar 13:28:51.151 * Background saving terminated with success
+2016-03-16T13:43:22.757+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 350ms
+2016-03-16T14:10:15.802+0800 I NETWORK  [conn11] end connection 127.0.0.1:51525 (0 connections now open)
+2016-03-16T14:10:18.724+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52059 #12 (1 connection now open)
+666:M 16 Mar 14:10:33.314 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 14:10:33.395 * Background saving started by pid 1705
+1705:C 16 Mar 14:10:33.402 * DB saved on disk
+666:M 16 Mar 14:10:33.498 * Background saving terminated with success
+2016-03-16T14:11:11.667+0800 I NETWORK  [conn12] end connection 127.0.0.1:52059 (0 connections now open)
+2016-03-16T14:11:12.792+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52069 #13 (1 connection now open)
+666:M 16 Mar 14:15:34.056 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 14:15:34.057 * Background saving started by pid 1742
+1742:C 16 Mar 14:15:34.058 * DB saved on disk
+666:M 16 Mar 14:15:34.162 * Background saving terminated with success
+2016-03-16T14:16:03.355+0800 I NETWORK  [conn13] end connection 127.0.0.1:52069 (0 connections now open)
+2016-03-16T14:16:52.218+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52154 #14 (1 connection now open)
+666:M 16 Mar 14:20:35.006 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 14:20:35.007 * Background saving started by pid 1791
+1791:C 16 Mar 14:20:35.008 * DB saved on disk
+666:M 16 Mar 14:20:35.110 * Background saving terminated with success
+2016-03-16T14:26:26.432+0800 I NETWORK  [conn14] end connection 127.0.0.1:52154 (0 connections now open)
+2016-03-16T14:27:10.206+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52199 #15 (1 connection now open)
+666:M 16 Mar 14:27:49.180 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 14:27:49.180 * Background saving started by pid 1863
+1863:C 16 Mar 14:27:49.185 * DB saved on disk
+666:M 16 Mar 14:27:49.284 * Background saving terminated with success
+2016-03-16T14:31:22.058+0800 I NETWORK  [conn15] end connection 127.0.0.1:52199 (0 connections now open)
+2016-03-16T14:31:59.695+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52329 #16 (1 connection now open)
+666:M 16 Mar 14:32:50.001 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 14:32:50.002 * Background saving started by pid 1956
+1956:C 16 Mar 14:32:50.003 * DB saved on disk
+666:M 16 Mar 14:32:50.107 * Background saving terminated with success
+2016-03-16T14:35:02.708+0800 I NETWORK  [conn16] end connection 127.0.0.1:52329 (0 connections now open)
+2016-03-16T14:35:03.834+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52347 #17 (1 connection now open)
+666:M 16 Mar 14:37:51.071 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 14:37:51.071 * Background saving started by pid 2000
+2000:C 16 Mar 14:37:51.072 * DB saved on disk
+666:M 16 Mar 14:37:51.176 * Background saving terminated with success
+2016-03-16T14:37:51.808+0800 I NETWORK  [conn17] end connection 127.0.0.1:52347 (0 connections now open)
+2016-03-16T14:37:54.242+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52384 #18 (1 connection now open)
+666:M 16 Mar 14:42:52.015 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 14:42:52.015 * Background saving started by pid 2040
+2040:C 16 Mar 14:42:52.016 * DB saved on disk
+666:M 16 Mar 14:42:52.118 * Background saving terminated with success
+666:M 16 Mar 15:13:43.750 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 15:13:43.750 * Background saving started by pid 2129
+2129:C 16 Mar 15:13:43.752 * DB saved on disk
+666:M 16 Mar 15:13:43.855 * Background saving terminated with success
+666:M 16 Mar 15:18:44.053 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 15:18:44.053 * Background saving started by pid 2207
+2207:C 16 Mar 15:18:44.060 * DB saved on disk
+666:M 16 Mar 15:18:44.158 * Background saving terminated with success
+2016-03-16T15:23:55.498+0800 I NETWORK  [conn18] end connection 127.0.0.1:52384 (0 connections now open)
+2016-03-16T15:23:58.403+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52956 #19 (1 connection now open)
+666:M 16 Mar 15:24:07.483 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 15:24:07.484 * Background saving started by pid 2258
+2258:C 16 Mar 15:24:07.485 * DB saved on disk
+666:M 16 Mar 15:24:07.587 * Background saving terminated with success
+2016-03-16T15:32:23.873+0800 I NETWORK  [conn19] end connection 127.0.0.1:52956 (0 connections now open)
+2016-03-16T15:32:27.190+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53086 #20 (1 connection now open)
+666:M 16 Mar 15:33:00.888 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 15:33:00.890 * Background saving started by pid 2308
+2308:C 16 Mar 15:33:00.952 * DB saved on disk
+666:M 16 Mar 15:33:00.996 * Background saving terminated with success
+666:M 16 Mar 15:38:01.059 * 100 changes in 300 seconds. Saving...
+666:M 16 Mar 15:38:01.060 * Background saving started by pid 2370
+2370:C 16 Mar 15:38:01.061 * DB saved on disk
+666:M 16 Mar 15:38:01.164 * Background saving terminated with success

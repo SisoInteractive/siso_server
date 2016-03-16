@@ -8,16 +8,24 @@
     <% include common/header.ejs %>
 
     <div class="main ui container">
+        <% if (state.state == 'home') { %>
+            <% include home.ejs %>
+        <% }%>
         <% if (state.state == 'admin') { %>
             <% include admin.ejs %>
         <% }%>
         <% if (state.state == 'entry') { %>
             <% include entry.ejs %>
         <% }%>
+        <% if (state.state == 'user') { %>
+            <% include user.ejs %>
+        <% }%>
         <% if (state.state == 'user.login') { %>
-        <% include login.ejs %>
+            <% include login.ejs %>
         <% }%>
     </div>
+
+
 
     <% include common/footer.ejs %>
     <% include common/foot.ejs %>

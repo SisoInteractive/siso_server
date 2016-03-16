@@ -19,6 +19,6 @@
 <% if (state.state == 'entry') { %>
     <link rel="stylesheet" href="/stylesheets/create.css"/>
 <% }%>
-<% if (state.state.indexOf('user') >= 0) { %>
+<% if (state.state == 'user' || state.state == 'user.login') { %>
     <link rel="stylesheet" href="/stylesheets/user.css"/>
 <% }%>

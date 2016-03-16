@@ -1,0 +1,12 @@
+<div class="ui container">
+    <h1>主界面</h1>
+    <div class="ui divider"></div>
+    <h3>您可以:</h3>
+    <div class="ui three cards fast-entry">
+        <% menu.forEach(function (item) { %>
+            <a class="<%= item.color %> card" href="<%= item.url %>">
+                <h2><i class="<%= item.icon %> icon"></i><%= item.title %></h2>
+            </a>
+        <% }) %>
+    </div>
+</div>

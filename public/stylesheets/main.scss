@@ -100,41 +100,29 @@ input {
     }
   }
 
-  .search {
-    float: right;
-    text-align: center;
-    @include border-left();
-  }
-
-  .search-btn {
-    display: block;
-    width: 75px;
-    height: $header-height;
-    border:none;
-    background: url("../images/icon-search.png") no-repeat center center;
-    @include border-right();
-  }
-
-  .user {
+  .user-state {
     float: right;
     @include border-left();
   }
 
   .user-signed {
     a {
-      display: block;
-      width: 148px;
+      float: left;
       line-height: $header-height;
       text-align: center;
-      @include border-right();
+      padding: 0 10px;
 
-      span {
-        display: inline-block;
-        height: $header-height;
-        padding: 0 20px 0 0;
-        background: url("../images/icon-header-down.png") no-repeat right center;
-
+      &:last-child {
+        border-right: none;
       }
+
+      &:hover, &.active {
+        background: url("../images/bg-header-nav-active.png") repeat-x;
+      }
+    }
+
+    .icon-logout {
+      font-size: 24px;
     }
   }
 }

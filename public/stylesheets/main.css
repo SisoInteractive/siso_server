@@ -83,35 +83,24 @@ input {
 .header-bd .nav a:hover, .header-bd .nav a.active {
   background: url("../images/bg-header-nav-active.png") repeat-x;
 }
-.header-bd .search {
-  float: right;
-  text-align: center;
-  border-left: 1px solid #2a2a2a;
-}
-.header-bd .search-btn {
-  display: block;
-  width: 75px;
-  height: 55px;
-  border: none;
-  background: url("../images/icon-search.png") no-repeat center center;
-  border-left: 1px solid #3d3d3d;
-}
-.header-bd .user {
+.header-bd .user-state {
   float: right;
   border-left: 1px solid #2a2a2a;
 }
 .header-bd .user-signed a {
-  display: block;
-  width: 148px;
+  float: left;
   line-height: 55px;
   text-align: center;
-  border-left: 1px solid #3d3d3d;
+  padding: 0 10px;
 }
-.header-bd .user-signed a span {
-  display: inline-block;
-  height: 55px;
-  padding: 0 20px 0 0;
-  background: url("../images/icon-header-down.png") no-repeat right center;
+.header-bd .user-signed a:last-child {
+  border-right: none;
+}
+.header-bd .user-signed a:hover, .header-bd .user-signed a.active {
+  background: url("../images/bg-header-nav-active.png") repeat-x;
+}
+.header-bd .user-signed .icon-logout {
+  font-size: 24px;
 }
 
 .header-search {
