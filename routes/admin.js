@@ -12,11 +12,10 @@ exports.list = function (req, res, next) {
         title: '当前文章栏目'
     };
 
-    var column = req.param('column') || 'case';
-    modelHelper(column, function (err, model) {
+    modelHelper(req, function (err, model) {
         if (err) return next(err);
-
         //  init page tags
+        var column = req.param('column');
         context = tagsHelper(req.path, column, context);
 
         //  skip the page.from, and limit page.perpage to get the entries

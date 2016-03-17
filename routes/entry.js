@@ -8,8 +8,11 @@ var formidable = require('formidable');
 var fs = require('fs');
 var fileHelper = require('../lib/fileHelper');
 
-exports.form = function (req, res) {
-    var column = req.param('column') || 'case';
+exports.form = function (req, res, next) {
+    var column = req.param('column');
+    if (!column) column = req.session.entryColumnHistory || 'case';
+    if (['case', 'career', 'news'].indexOf(column) == -1) return next();
+
     var context = {
         state: {
             state: 'entry',
@@ -24,6 +27,7 @@ exports.form = function (req, res) {
 
     //  init page tags
     context = tagsHelper(req.path, column, context);
+    req.session.entryColumnHistory = column;
 
     res.status(200);
     res.render('page', context);
@@ -31,12 +35,12 @@ exports.form = function (req, res) {
 
 exports.editForm = function (req, res, next) {
     var id = req.param('id');
-    var column = req.param('column');
-    modelHelper(column, function (err, model) {
+    modelHelper(req, function (err, model) {
         if (err) return next(err);
         model.findById(id, function (err, entry) {
             if (err) return next(err);
             if (!entry) return next();
+            var column = req.param('column');
             var context = {
                 state: {
                     state: 'entry',
@@ -122,14 +126,14 @@ exports.update = function (app) {
             return;
         }
 
-        var column = req.param('column');
-        modelHelper(column, function (err, model) {
+        modelHelper(req, function (err, model) {
             if (err) return next(err);
-
             //  find entry
             model.findOne({_id: id}, function (err, doc) {
                 if (err) return next(err);
                 if (!doc) return next(new Error({message: 'Entry not found'}));
+
+                var column = req.param('column');
 
                 //  handle incoming form data
                 var form = new formidable.IncomingForm();
@@ -179,7 +183,7 @@ exports.update = function (app) {
                         }
 
                         //  redirect
-                        res.redirect('/admin?column=' + column);
+                        res.redirect('/admin');
                     });
                 });
             });
@@ -199,12 +203,12 @@ exports.delete = function (app) {
             return;
         }
 
-        var column = req.param('column');
-        modelHelper(column, function (err, model) {
+        modelHelper(req, function (err, model) {
             if (err) return next(err);
 
             Entry.delete(model, id, function (err, entry) {
                 if (err) return next(err);
+                var column = req.param('column');
 
                 if (entry) {
                     res.status(204);

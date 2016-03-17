@@ -2249,3 +2249,53 @@
 666:M 16 Mar 15:38:01.060 * Background saving started by pid 2370
 2370:C 16 Mar 15:38:01.061 * DB saved on disk
 666:M 16 Mar 15:38:01.164 * Background saving terminated with success
+2016-03-17T12:20:44.684+0800 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-17T12:20:44.754+0800 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-17T12:20:44.755+0800 I JOURNAL  [initandlisten] recover begin
+2016-03-17T12:20:44.791+0800 I JOURNAL  [initandlisten] recover lsn: 22748533
+2016-03-17T12:20:44.791+0800 I JOURNAL  [initandlisten] recover /data/db/journal/j._0
+2016-03-17T12:20:44.791+0800 I JOURNAL  [initandlisten] recover skipping application of section seq:0 < lsn:22748533
+2016-03-17T12:20:44.820+0800 I JOURNAL  [initandlisten] recover cleaning up
+2016-03-17T12:20:44.820+0800 I JOURNAL  [initandlisten] removeJournalFiles
+2016-03-17T12:20:44.843+0800 I JOURNAL  [initandlisten] recover done
+2016-03-17T12:20:44.865+0800 I JOURNAL  [durability] Durability thread started
+2016-03-17T12:20:44.865+0800 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-17T12:20:44.865+0800 I CONTROL  [initandlisten] MongoDB starting : pid=716 port=27017 dbpath=/data/db 64-bit host=Qiangs-Mac-mini.local
+2016-03-17T12:20:44.865+0800 I CONTROL  [initandlisten] 
+2016-03-17T12:20:44.865+0800 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+2016-03-17T12:20:44.865+0800 I CONTROL  [initandlisten] db version v3.0.3
+2016-03-17T12:20:44.866+0800 I CONTROL  [initandlisten] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2016-03-17T12:20:44.866+0800 I CONTROL  [initandlisten] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-17T12:20:44.866+0800 I CONTROL  [initandlisten] allocator: system
+2016-03-17T12:20:44.866+0800 I CONTROL  [initandlisten] options: {}
+2016-03-17T12:20:48.953+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+735:C 17 Mar 12:20:52.048 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+735:M 17 Mar 12:20:52.049 * Increased maximum number of open files to 10032 (it was originally set to 256).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 735
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+735:M 17 Mar 12:20:52.053 # Server started, Redis version 3.0.7
+735:M 17 Mar 12:20:52.054 * DB loaded from disk: 0.000 seconds
+735:M 17 Mar 12:20:52.054 * The server is now ready to accept connections on port 6379
+2016-03-17T12:20:58.701+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49652 #1 (1 connection now open)
+2016-03-17T12:23:27.502+0800 I NETWORK  [conn1] end connection 127.0.0.1:49652 (0 connections now open)
+2016-03-17T12:23:34.125+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49676 #2 (1 connection now open)
+735:M 17 Mar 12:25:53.021 * 100 changes in 300 seconds. Saving...
+735:M 17 Mar 12:25:53.022 * Background saving started by pid 831
+831:C 17 Mar 12:25:53.057 * DB saved on disk
+735:M 17 Mar 12:25:53.126 * Background saving terminated with success

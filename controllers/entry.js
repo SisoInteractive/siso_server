@@ -60,8 +60,7 @@ Entry.getRange = function (model, from, perpage, fn) {
 
 //  count documents via req.query's column property
 Entry.count = function (req, fn) {
-    var column = req.param('column');
-    modelHelper(column, function (err, model) {
+    modelHelper(req, function (err, model) {
         if (err) return fn(err);
         model.count({}, fn);
     });

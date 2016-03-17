@@ -7,13 +7,13 @@ exports.home = function (req, res) {
             //  red orange yellow olive green teal blue violet purple pink brown grey black
             {
                 title: '文章管理',
-                url: '/admin?column=career',
+                url: '/admin',
                 color: 'red',
                 icon: 'newspaper'
             },
             {
                 title: '创建文章',
-                url: '/entry?column=case',
+                url: '/entry',
                 color: 'orange',
                 icon: 'add circle'
             },

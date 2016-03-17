@@ -7,7 +7,6 @@ var entry = {
         }
 
         //  set entry type
-        $('input[name="entry_type"]').val('case');
         $('input[name="entry_date"]').val(new Date().toString());
 
         $('.entry-submit').click(function () {
@@ -55,7 +54,6 @@ var entry = {
         }
 
         //  set entry type
-        $('input[name="entry_type"]').val('career');
         $('input[name="entry_date"]').val(new Date().toString());
 
         $('.entry-submit').click(function () {
@@ -93,7 +91,6 @@ var entry = {
         }
 
         //  set entry type
-        $('input[name="entry_type"]').val('news');
         $('input[name="entry_date"]').val(new Date().toString());
 
         $('.entry-submit').click(function () {
