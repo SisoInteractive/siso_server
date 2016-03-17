@@ -14,10 +14,11 @@ exports.list = function (req, res, next) {
             if (!entries) {
                 res.status(404);
                 res.setHeader({'Content-Type': 'application/json'});
-                res.send({message: 'Entries not found'});
+                return res.send({message: 'Entries not found'});
             }
             res.status(200);
             res.send({result: entries});
         });
     });
 };
+
