@@ -9,8 +9,9 @@ var bodyParser = require('body-parser');
 var csurf = require('csurf');
 var methodOverride = require('method-override');
 
-var user = require('./lib/middleware/user');
 var common = require('./routes/common');
+var user = require('./lib/middleware/user');
+var auth = require('./lib/middleware/auth');
 
 //  app
 var app = express();
@@ -34,8 +35,10 @@ app.use(session({ secret: 'siso system', store: new RedisStore }));
 app.use(express.static(app.get('root')));
 app.use(methodOverride('_method'));
 
-//  routes
 app.use(user);
+app.use('/api', auth.api);
+
+//  routes
 app.use(require('./routes/routes')(app));
 
 //  handle 404 and error

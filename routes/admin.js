@@ -21,6 +21,8 @@ exports.list = function (req, res, next) {
         //  skip the page.from, and limit page.perpage to get the entries
         Entry.getRange(model, req.page.from, req.page.perpage, function (err, entries) {
             if (err) return next(err);
+            if (!entries) return next(); // 404
+
             var curYear = new Date().getFullYear();
             //  reformat date
             context.entries = entries.map(function (entry) {

@@ -1,4 +1,9 @@
 exports.notfound = function (req, res) {
+    if (req.remoteUser) {
+        res.status(404);
+        return res.send({result: 'page not found'});
+    }
+
     res.status(404).format({
         html: function () {
             res.render('404', { state: { state: 404 } });

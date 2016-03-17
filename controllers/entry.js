@@ -66,4 +66,11 @@ Entry.count = function (req, fn) {
     });
 };
 
+Entry.getAll = function (model, fn) {
+    model.find({}, function (err, entries) {
+        if (err) return fn(err);
+        fn(null, entries);
+    });
+};
+
 module.exports = Entry;

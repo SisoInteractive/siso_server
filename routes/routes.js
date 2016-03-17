@@ -15,8 +15,8 @@ module.exports = function (app) {
     var page = require('../lib/page');
     var Entry = require('../controllers/entry');
 
-    //  restrict login
-    router.all(/^((?!\/user\/login).)*$/, auth.restrict);
+    //  restrict login (except /user/login, /api at beginning)
+    router.all(/(?=^\/(?!user\/login))(?=^\/(?!api))/, auth.restrict);
 
     //  entry
     router.get('/entry', entry.form);
