@@ -2299,3 +2299,311 @@
 735:M 17 Mar 12:25:53.022 * Background saving started by pid 831
 831:C 17 Mar 12:25:53.057 * DB saved on disk
 735:M 17 Mar 12:25:53.126 * Background saving terminated with success
+2016-03-18T13:11:30.452+0800 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-18T13:11:30.476+0800 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-18T13:11:30.476+0800 I JOURNAL  [initandlisten] recover begin
+2016-03-18T13:11:30.483+0800 I JOURNAL  [initandlisten] recover lsn: 14592923
+2016-03-18T13:11:30.483+0800 I JOURNAL  [initandlisten] recover /data/db/journal/j._0
+2016-03-18T13:11:30.494+0800 I JOURNAL  [initandlisten] recover skipping application of section seq:0 < lsn:14592923
+2016-03-18T13:11:30.495+0800 I JOURNAL  [initandlisten] recover skipping application of section seq:14541773 < lsn:14592923
+2016-03-18T13:11:30.542+0800 I JOURNAL  [initandlisten] recover cleaning up
+2016-03-18T13:11:30.542+0800 I JOURNAL  [initandlisten] removeJournalFiles
+2016-03-18T13:11:30.574+0800 I JOURNAL  [initandlisten] recover done
+2016-03-18T13:11:30.620+0800 I JOURNAL  [durability] Durability thread started
+2016-03-18T13:11:30.620+0800 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] MongoDB starting : pid=1300 port=27017 dbpath=/data/db 64-bit host=Qiangs-Mac-mini.local
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] 
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] db version v3.0.3
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] allocator: system
+2016-03-18T13:11:30.620+0800 I CONTROL  [initandlisten] options: {}
+2016-03-18T13:11:34.666+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+1310:C 18 Mar 13:11:37.613 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+1310:M 18 Mar 13:11:37.615 * Increased maximum number of open files to 10032 (it was originally set to 256).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 1310
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+1310:M 18 Mar 13:11:37.655 # Server started, Redis version 3.0.7
+1310:M 18 Mar 13:11:37.675 * DB loaded from disk: 0.020 seconds
+1310:M 18 Mar 13:11:37.675 * The server is now ready to accept connections on port 6379
+2016-03-18T13:12:34.675+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 39ms
+2016-03-18T13:13:25.860+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51202 #1 (1 connection now open)
+1310:M 18 Mar 16:28:43.276 * 1 changes in 3600 seconds. Saving...
+1310:M 18 Mar 16:28:43.291 * Background saving started by pid 1762
+1762:C 18 Mar 16:28:43.321 * DB saved on disk
+1310:M 18 Mar 16:28:43.394 * Background saving terminated with success
+2016-03-18T16:33:43.377+0800 I NETWORK  [conn1] end connection 127.0.0.1:51202 (0 connections now open)
+2016-03-18T16:33:46.433+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52706 #2 (1 connection now open)
+2016-03-18T16:41:58.658+0800 I NETWORK  [conn2] end connection 127.0.0.1:52706 (0 connections now open)
+2016-03-18T16:42:01.101+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53248 #3 (1 connection now open)
+1310:M 18 Mar 16:42:08.055 * 100 changes in 300 seconds. Saving...
+1310:M 18 Mar 16:42:08.056 * Background saving started by pid 1863
+1863:C 18 Mar 16:42:08.057 * DB saved on disk
+1310:M 18 Mar 16:42:08.156 * Background saving terminated with success
+1310:M 18 Mar 16:47:09.043 * 100 changes in 300 seconds. Saving...
+1310:M 18 Mar 16:47:09.043 * Background saving started by pid 1874
+1874:C 18 Mar 16:47:09.045 * DB saved on disk
+1310:M 18 Mar 16:47:09.148 * Background saving terminated with success
+2016-03-18T16:57:52.313+0800 I NETWORK  [conn3] end connection 127.0.0.1:53248 (0 connections now open)
+2016-03-18T16:57:55.037+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53711 #4 (1 connection now open)
+2016-03-18T16:59:40.459+0800 I NETWORK  [conn4] end connection 127.0.0.1:53711 (0 connections now open)
+2016-03-18T16:59:44.541+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53750 #5 (1 connection now open)
+2016-03-18T17:19:27.423+0800 I NETWORK  [conn5] end connection 127.0.0.1:53750 (0 connections now open)
+2016-03-18T17:19:40.513+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54245 #6 (1 connection now open)
+2016-03-18T17:21:44.179+0800 I NETWORK  [conn6] end connection 127.0.0.1:54245 (0 connections now open)
+2016-03-18T17:21:47.141+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54302 #7 (1 connection now open)
+2016-03-18T17:22:08.353+0800 I NETWORK  [conn7] end connection 127.0.0.1:54302 (0 connections now open)
+2016-03-18T17:22:09.438+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54315 #8 (1 connection now open)
+2016-03-18T17:27:38.567+0800 I QUERY    [conn8] query siso_server.news planSummary: COLLSCAN ntoreturn:1000 ntoskip:0 nscanned:0 nscannedObjects:2 keyUpdates:0 writeConflicts:0 numYields:1 nreturned:2 reslen:833 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { R: 2 } } } 235ms
+2016-03-18T17:29:21.980+0800 I NETWORK  [conn8] end connection 127.0.0.1:54315 (0 connections now open)
+2016-03-18T17:29:24.555+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54450 #9 (1 connection now open)
+1310:M 18 Mar 17:47:10.104 * 1 changes in 3600 seconds. Saving...
+1310:M 18 Mar 17:47:10.151 * Background saving started by pid 2272
+2272:C 18 Mar 17:47:10.156 * DB saved on disk
+1310:M 18 Mar 17:47:10.259 * Background saving terminated with success
+2016-03-18T17:50:32.694+0800 I NETWORK  [conn9] end connection 127.0.0.1:54450 (0 connections now open)
+2016-03-18T17:50:36.201+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54645 #10 (1 connection now open)
+2016-03-18T17:50:59.673+0800 I NETWORK  [conn10] end connection 127.0.0.1:54645 (0 connections now open)
+2016-03-18T17:51:03.342+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54650 #11 (1 connection now open)
+2016-03-18T17:52:30.245+0800 I NETWORK  [conn11] end connection 127.0.0.1:54650 (0 connections now open)
+2016-03-18T17:52:32.037+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54717 #12 (1 connection now open)
+2016-03-18T18:15:51.139+0800 I NETWORK  [conn12] end connection 127.0.0.1:54717 (0 connections now open)
+2016-03-18T18:15:53.974+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55676 #13 (1 connection now open)
+2016-03-18T18:19:04.354+0800 I NETWORK  [conn13] end connection 127.0.0.1:55676 (0 connections now open)
+2016-03-18T18:19:05.499+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55709 #14 (1 connection now open)
+1310:M 18 Mar 18:25:43.186 * 100 changes in 300 seconds. Saving...
+1310:M 18 Mar 18:25:43.199 * Background saving started by pid 2497
+2497:C 18 Mar 18:25:43.201 * DB saved on disk
+1310:M 18 Mar 18:25:43.303 * Background saving terminated with success
+2016-03-18T18:27:09.586+0800 I COMMAND  [conn14] command siso_server.$cmd command: insert { insert: "news", documents: [ { type: "news", date: new Date(1458296786000), title: "凹凸在创作新歌", body: "他在赞颂狼哥哥..一首好听的歌..积极向上的歌曲", _id: ObjectId('56ebd7fde68e2fae094728d6'), __v: 0 } ], ordered: false, writeConcern: { w: 1 } } keyUpdates:0 writeConflicts:0 numYields:0 reslen:40 locks:{ Global: { acquireCount: { w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 }, acquireWaitCount: { w: 1 }, timeAcquiringMicros: { w: 8768 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } 141ms
+1310:M 18 Mar 18:30:44.102 * 100 changes in 300 seconds. Saving...
+1310:M 18 Mar 18:30:44.103 * Background saving started by pid 2517
+2517:C 18 Mar 18:30:44.110 * DB saved on disk
+1310:M 18 Mar 18:30:44.204 * Background saving terminated with success
+1310:M 18 Mar 19:30:45.096 * 1 changes in 3600 seconds. Saving...
+1310:M 18 Mar 19:30:45.151 * Background saving started by pid 2632
+2632:C 18 Mar 19:30:45.212 * DB saved on disk
+1310:M 18 Mar 19:30:45.267 * Background saving terminated with success
+1310:M 18 Mar 20:09:28.956 * 100 changes in 300 seconds. Saving...
+1310:M 18 Mar 20:09:29.079 * Background saving started by pid 2818
+2818:C 18 Mar 20:09:29.325 * DB saved on disk
+1310:M 18 Mar 20:09:29.410 * Background saving terminated with success
+1310:M 18 Mar 21:09:30.061 * 1 changes in 3600 seconds. Saving...
+1310:M 18 Mar 21:09:30.107 * Background saving started by pid 2932
+2932:C 18 Mar 21:09:30.122 * DB saved on disk
+1310:M 18 Mar 21:09:30.210 * Background saving terminated with success
+2016-03-18T21:14:59.214+0800 I NETWORK  [conn14] end connection 127.0.0.1:55709 (0 connections now open)
+1310:signal-handler (1458306967) Received SIGTERM scheduling shutdown...
+1310:M 18 Mar 21:16:07.134 # User requested shutdown...
+1310:M 18 Mar 21:16:07.134 * Saving the final RDB snapshot before exiting.
+1310:M 18 Mar 21:16:07.136 * DB saved on disk
+1310:M 18 Mar 21:16:07.136 # Redis is now ready to exit, bye bye...
+2016-03-21T12:29:03.830+0800 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-21T12:29:03.863+0800 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-21T12:29:03.863+0800 I JOURNAL  [initandlisten] recover begin
+2016-03-21T12:29:03.891+0800 I JOURNAL  [initandlisten] recover lsn: 21282804
+2016-03-21T12:29:03.891+0800 I JOURNAL  [initandlisten] recover /data/db/journal/j._0
+2016-03-21T12:29:03.911+0800 I JOURNAL  [initandlisten] recover skipping application of section seq:0 < lsn:21282804
+2016-03-21T12:29:03.911+0800 I JOURNAL  [initandlisten] recover skipping application of section seq:16131474 < lsn:21282804
+2016-03-21T12:29:03.945+0800 I JOURNAL  [initandlisten] recover cleaning up
+2016-03-21T12:29:03.945+0800 I JOURNAL  [initandlisten] removeJournalFiles
+2016-03-21T12:29:03.970+0800 I JOURNAL  [initandlisten] recover done
+2016-03-21T12:29:03.996+0800 I JOURNAL  [durability] Durability thread started
+2016-03-21T12:29:03.997+0800 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-21T12:29:03.997+0800 I CONTROL  [initandlisten] MongoDB starting : pid=683 port=27017 dbpath=/data/db 64-bit host=Qiangs-Mac-mini.local
+2016-03-21T12:29:03.997+0800 I CONTROL  [initandlisten] db version v3.0.3
+2016-03-21T12:29:03.997+0800 I CONTROL  [initandlisten] git version: b40106b36eecd1b4407eb1ad1af6bc60593c6105
+2016-03-21T12:29:03.997+0800 I CONTROL  [initandlisten] build info: Darwin bs-osx108-7 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-21T12:29:03.997+0800 I CONTROL  [initandlisten] allocator: system
+2016-03-21T12:29:03.997+0800 I CONTROL  [initandlisten] options: {}
+2016-03-21T12:29:07.644+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+700:C 21 Mar 12:29:12.854 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 700
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+700:M 21 Mar 12:29:12.884 # Server started, Redis version 3.0.7
+700:M 21 Mar 12:29:12.893 * DB loaded from disk: 0.010 seconds
+700:M 21 Mar 12:29:12.893 * The server is now ready to accept connections on port 6379
+2016-03-21T12:30:07.630+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 15ms
+2016-03-21T12:31:43.738+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52091 #1 (1 connection now open)
+700:M 21 Mar 12:58:04.411 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 12:58:04.422 * Background saving started by pid 814
+814:C 21 Mar 12:58:04.463 * DB saved on disk
+700:M 21 Mar 12:58:04.627 * Background saving terminated with success
+700:M 21 Mar 13:03:05.055 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 13:03:05.093 * Background saving started by pid 826
+826:C 21 Mar 13:03:05.187 * DB saved on disk
+700:M 21 Mar 13:03:05.197 * Background saving terminated with success
+2016-03-21T13:03:41.816+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52734 #2 (2 connections now open)
+2016-03-21T13:08:33.310+0800 I COMMAND  [conn2] dropDatabase siso_server starting
+2016-03-21T13:08:33.354+0800 I JOURNAL  [conn2] journalCleanup...
+2016-03-21T13:08:33.354+0800 I JOURNAL  [conn2] removeJournalFiles
+2016-03-21T13:08:33.449+0800 I JOURNAL  [conn2] journalCleanup...
+2016-03-21T13:08:33.449+0800 I JOURNAL  [conn2] removeJournalFiles
+2016-03-21T13:08:33.486+0800 I COMMAND  [conn2] dropDatabase siso_server finished
+2016-03-21T13:08:33.524+0800 I COMMAND  [conn2] command siso_server.$cmd command: dropDatabase { dropDatabase: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:62 locks:{ Global: { acquireCount: { w: 1, W: 1 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { W: 1 } } } 191ms
+2016-03-21T13:11:41.304+0800 I INDEX    [conn1] allocating new ns file /data/db/siso_server.ns, filling with zeroes...
+2016-03-21T13:11:41.544+0800 I STORAGE  [FileAllocator] allocating new datafile /data/db/siso_server.0, filling with zeroes...
+2016-03-21T13:11:41.545+0800 I STORAGE  [FileAllocator] creating directory /data/db/_tmp
+2016-03-21T13:11:42.146+0800 I STORAGE  [FileAllocator] done allocating datafile /data/db/siso_server.0, size: 64MB,  took 0.601 secs
+2016-03-21T13:11:42.387+0800 I WRITE    [conn1] insert siso_server.cases query: { type: "case", date: new Date(0), title: "京东的日子", body: "正文就是这样的
+我们一定要加油
+我们还一定要坚强~~~~", toHome: false, toHomeOrder: 0, homeThumbSrc: "/uploads/mostRecent04.jpg", caseStudiesThumbSrc: "/uploads/mostRecent02.jpg", _id: ObjectId('56ef828d116fa2d002659c04'), __v: 0 } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 locks:{ Global: { acquireCount: { w: 2 } }, MMAPV1Journal: { acquireCount: { w: 8 }, acquireWaitCount: { w: 1 }, timeAcquiringMicros: { w: 53 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } 1102ms
+2016-03-21T13:11:42.401+0800 I COMMAND  [conn1] command siso_server.$cmd command: insert { insert: "cases", documents: [ { type: "case", date: new Date(0), title: "京东的日子", body: "正文就是这样的
+我们一定要加油
+我们还一定要坚强~~~~", toHome: false, toHomeOrder: 0, homeThumbSrc: "/uploads/mostRecent04.jpg", caseStudiesThumbSrc: "/uploads/mostRecent02.jpg", _id: ObjectId('56ef828d116fa2d002659c04'), __v: 0 } ], ordered: false, writeConcern: { w: 1 } } keyUpdates:0 writeConflicts:0 numYields:0 reslen:40 locks:{ Global: { acquireCount: { w: 2 } }, MMAPV1Journal: { acquireCount: { w: 8 }, acquireWaitCount: { w: 1 }, timeAcquiringMicros: { w: 53 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } 1164ms
+2016-03-21T13:28:08.054+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 17ms
+2016-03-21T13:32:40.750+0800 I QUERY    [conn1] query siso_server.cases planSummary: COLLSCAN ntoreturn:1000 ntoskip:0 nscanned:0 nscannedObjects:1 keyUpdates:0 writeConflicts:0 numYields:1 nreturned:1 reslen:313 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { R: 2 } } } 107ms
+2016-03-21T13:36:04.974+0800 I NETWORK  [conn1] end connection 127.0.0.1:52091 (1 connection now open)
+2016-03-21T13:36:46.735+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53544 #3 (2 connections now open)
+700:M 21 Mar 13:36:47.567 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 13:36:47.567 * Background saving started by pid 964
+964:C 21 Mar 13:36:47.569 * DB saved on disk
+700:M 21 Mar 13:36:47.675 * Background saving terminated with success
+2016-03-21T13:39:19.419+0800 I NETWORK  [conn3] end connection 127.0.0.1:53544 (1 connection now open)
+2016-03-21T13:39:46.973+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53582 #4 (2 connections now open)
+2016-03-21T13:39:53.175+0800 I NETWORK  [conn4] end connection 127.0.0.1:53582 (1 connection now open)
+2016-03-21T13:40:27.503+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53624 #5 (2 connections now open)
+700:M 21 Mar 13:42:10.821 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 13:42:10.822 * Background saving started by pid 1005
+1005:C 21 Mar 13:42:10.823 * DB saved on disk
+700:M 21 Mar 13:42:10.927 * Background saving terminated with success
+2016-03-21T13:49:15.345+0800 I NETWORK  [conn5] end connection 127.0.0.1:53624 (1 connection now open)
+2016-03-21T13:49:16.622+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53951 #6 (2 connections now open)
+2016-03-21T13:49:22.665+0800 I COMMAND  [conn2] dropDatabase siso_server starting
+2016-03-21T13:49:22.853+0800 I JOURNAL  [conn2] journalCleanup...
+2016-03-21T13:49:22.853+0800 I JOURNAL  [conn2] removeJournalFiles
+2016-03-21T13:49:23.107+0800 I JOURNAL  [conn2] journalCleanup...
+2016-03-21T13:49:23.107+0800 I JOURNAL  [conn2] removeJournalFiles
+2016-03-21T13:49:23.147+0800 I COMMAND  [conn2] dropDatabase siso_server finished
+2016-03-21T13:49:23.189+0800 I COMMAND  [conn2] command siso_server.$cmd command: dropDatabase { dropDatabase: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:62 locks:{ Global: { acquireCount: { w: 1, W: 1 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { W: 1 } } } 512ms
+2016-03-21T13:49:37.693+0800 I NETWORK  [conn6] end connection 127.0.0.1:53951 (1 connection now open)
+2016-03-21T13:49:38.891+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53963 #7 (2 connections now open)
+2016-03-21T13:49:54.066+0800 I INDEX    [conn7] allocating new ns file /data/db/siso_server.ns, filling with zeroes...
+2016-03-21T13:49:54.366+0800 I STORAGE  [FileAllocator] allocating new datafile /data/db/siso_server.0, filling with zeroes...
+2016-03-21T13:49:54.963+0800 I STORAGE  [FileAllocator] done allocating datafile /data/db/siso_server.0, size: 64MB,  took 0.596 secs
+2016-03-21T13:49:55.248+0800 I WRITE    [conn7] insert siso_server.cases query: { type: "case", date: new Date(0), title: "京东的日子", body: "正文就是这样的
+我们一定要加油
+我们还一定要坚强~~~~", toHome: false, toHomeOrder: 0, homeThumbSrc: "/uploads/bg02.png", homeThumbMobileSrc: "/uploads/bg03.png", caseStudiesThumbSrc: "/uploads/mostRecent02.jpg", caseStudiesThumbMobileSrc: "/uploads/mostRecent02.jpg", order: 0, _id: ObjectId('56ef8b825f36ae2104a59241'), __v: 0 } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 locks:{ Global: { acquireCount: { w: 2 } }, MMAPV1Journal: { acquireCount: { w: 8 }, acquireWaitCount: { w: 1 }, timeAcquiringMicros: { w: 48 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } 1214ms
+2016-03-21T13:49:55.249+0800 I COMMAND  [conn7] command siso_server.$cmd command: insert { insert: "cases", documents: [ { type: "case", date: new Date(0), title: "京东的日子", body: "正文就是这样的
+我们一定要加油
+我们还一定要坚强~~~~", toHome: false, toHomeOrder: 0, homeThumbSrc: "/uploads/bg02.png", homeThumbMobileSrc: "/uploads/bg03.png", caseStudiesThumbSrc: "/uploads/mostRecent02.jpg", caseStudiesThumbMobileSrc: "/uploads/mostRecent02.jpg", order: 0, _id: ObjectId('56ef8b825f36ae2104a59241'), __v: 0 } ], ordered: false, writeConcern: { w: 1 } } keyUpdates:0 writeConflicts:0 numYields:0 reslen:40 locks:{ Global: { acquireCount: { w: 2 } }, MMAPV1Journal: { acquireCount: { w: 8 }, acquireWaitCount: { w: 1 }, timeAcquiringMicros: { w: 48 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } 1214ms
+2016-03-21T13:51:04.617+0800 I NETWORK  [conn7] end connection 127.0.0.1:53963 (1 connection now open)
+2016-03-21T13:51:05.912+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53996 #8 (2 connections now open)
+700:M 21 Mar 13:51:18.629 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 13:51:18.630 * Background saving started by pid 1080
+1080:C 21 Mar 13:51:18.631 * DB saved on disk
+700:M 21 Mar 13:51:18.732 * Background saving terminated with success
+2016-03-21T13:52:32.144+0800 I NETWORK  [conn8] end connection 127.0.0.1:53996 (1 connection now open)
+2016-03-21T13:52:33.333+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54030 #9 (2 connections now open)
+2016-03-21T13:53:07.003+0800 I NETWORK  [conn9] end connection 127.0.0.1:54030 (1 connection now open)
+2016-03-21T13:53:08.138+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54044 #10 (2 connections now open)
+2016-03-21T13:54:48.886+0800 I NETWORK  [conn10] end connection 127.0.0.1:54044 (1 connection now open)
+2016-03-21T13:54:50.172+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54107 #11 (2 connections now open)
+700:M 21 Mar 13:56:19.057 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 13:56:19.057 * Background saving started by pid 1141
+1141:C 21 Mar 13:56:19.059 * DB saved on disk
+700:M 21 Mar 13:56:19.161 * Background saving terminated with success
+2016-03-21T13:59:49.869+0800 I NETWORK  [conn11] end connection 127.0.0.1:54107 (1 connection now open)
+2016-03-21T14:00:02.573+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54191 #12 (2 connections now open)
+2016-03-21T14:00:06.807+0800 I NETWORK  [conn12] end connection 127.0.0.1:54191 (1 connection now open)
+2016-03-21T14:00:07.855+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54201 #13 (2 connections now open)
+2016-03-21T14:00:50.323+0800 I NETWORK  [conn13] end connection 127.0.0.1:54201 (1 connection now open)
+2016-03-21T14:00:51.365+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54216 #14 (2 connections now open)
+2016-03-21T14:01:06.117+0800 I NETWORK  [conn14] end connection 127.0.0.1:54216 (1 connection now open)
+2016-03-21T14:01:07.220+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54231 #15 (2 connections now open)
+700:M 21 Mar 14:01:20.088 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 14:01:20.089 * Background saving started by pid 1342
+1342:C 21 Mar 14:01:20.090 * DB saved on disk
+700:M 21 Mar 14:01:20.193 * Background saving terminated with success
+2016-03-21T14:20:03.907+0800 I NETWORK  [conn15] end connection 127.0.0.1:54231 (1 connection now open)
+2016-03-21T14:20:07.432+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54785 #16 (2 connections now open)
+2016-03-21T14:20:40.509+0800 I COMMAND  [conn2] dropDatabase siso_server starting
+2016-03-21T14:20:40.525+0800 I JOURNAL  [conn2] journalCleanup...
+2016-03-21T14:20:40.525+0800 I JOURNAL  [conn2] removeJournalFiles
+2016-03-21T14:20:40.614+0800 I JOURNAL  [conn2] journalCleanup...
+2016-03-21T14:20:40.614+0800 I JOURNAL  [conn2] removeJournalFiles
+2016-03-21T14:20:40.629+0800 I COMMAND  [conn2] dropDatabase siso_server finished
+2016-03-21T14:20:40.629+0800 I COMMAND  [conn2] command siso_server.$cmd command: dropDatabase { dropDatabase: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:62 locks:{ Global: { acquireCount: { w: 1, W: 1 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { W: 1 } } } 119ms
+2016-03-21T14:20:50.064+0800 I NETWORK  [conn16] end connection 127.0.0.1:54785 (1 connection now open)
+2016-03-21T14:21:42.333+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54821 #17 (2 connections now open)
+2016-03-21T14:22:10.074+0800 I NETWORK  [conn17] end connection 127.0.0.1:54821 (1 connection now open)
+2016-03-21T14:22:11.208+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54843 #18 (2 connections now open)
+2016-03-21T14:22:14.667+0800 I INDEX    [conn18] allocating new ns file /data/db/siso_server.ns, filling with zeroes...
+2016-03-21T14:22:14.932+0800 I STORAGE  [FileAllocator] allocating new datafile /data/db/siso_server.0, filling with zeroes...
+2016-03-21T14:22:15.546+0800 I STORAGE  [FileAllocator] done allocating datafile /data/db/siso_server.0, size: 64MB,  took 0.613 secs
+2016-03-21T14:22:15.770+0800 I WRITE    [conn18] insert siso_server.cases query: { type: "case", date: new Date(0), title: "京东的日子", body: "正文就是这样的
+我们一定要加油
+我们还一定要坚强~~~~", toHome: false, toHomeOrder: 0, homeThumbSrc: "/uploads/1458541401989.png", homeThumbMobileSrc: "/uploads/1458541424859.png", caseStudiesThumbSrc: "/uploads/1458541383749.jpeg", caseStudiesThumbMobileSrc: "/uploads/1458541372604.jpeg", order: 0, _id: ObjectId('56ef9316fd47e5e1052011fc'), __v: 0 } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 locks:{ Global: { acquireCount: { w: 2 } }, MMAPV1Journal: { acquireCount: { w: 8 }, acquireWaitCount: { w: 1 }, timeAcquiringMicros: { w: 42 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } 1102ms
+2016-03-21T14:22:15.770+0800 I COMMAND  [conn18] command siso_server.$cmd command: insert { insert: "cases", documents: [ { type: "case", date: new Date(0), title: "京东的日子", body: "正文就是这样的
+我们一定要加油
+我们还一定要坚强~~~~", toHome: false, toHomeOrder: 0, homeThumbSrc: "/uploads/1458541401989.png", homeThumbMobileSrc: "/uploads/1458541424859.png", caseStudiesThumbSrc: "/uploads/1458541383749.jpeg", caseStudiesThumbMobileSrc: "/uploads/1458541372604.jpeg", order: 0, _id: ObjectId('56ef9316fd47e5e1052011fc'), __v: 0 } ], ordered: false, writeConcern: { w: 1 } } keyUpdates:0 writeConflicts:0 numYields:0 reslen:40 locks:{ Global: { acquireCount: { w: 2 } }, MMAPV1Journal: { acquireCount: { w: 8 }, acquireWaitCount: { w: 1 }, timeAcquiringMicros: { w: 42 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } 1102ms
+700:M 21 Mar 14:24:19.646 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 14:24:19.712 * Background saving started by pid 1534
+1534:C 21 Mar 14:24:19.813 * DB saved on disk
+700:M 21 Mar 14:24:19.915 * Background saving terminated with success
+2016-03-21T14:25:08.517+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 79ms
+2016-03-21T14:26:54.421+0800 I NETWORK  [conn18] end connection 127.0.0.1:54843 (1 connection now open)
+2016-03-21T14:29:12.080+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55041 #19 (2 connections now open)
+2016-03-21T14:29:22.531+0800 I NETWORK  [conn19] end connection 127.0.0.1:55041 (1 connection now open)
+2016-03-21T14:29:37.482+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55062 #20 (2 connections now open)
+700:M 21 Mar 14:29:39.417 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 14:29:39.417 * Background saving started by pid 1624
+1624:C 21 Mar 14:29:39.436 * DB saved on disk
+700:M 21 Mar 14:29:39.522 * Background saving terminated with success
+2016-03-21T14:30:43.622+0800 I NETWORK  [conn20] end connection 127.0.0.1:55062 (1 connection now open)
+2016-03-21T14:30:44.657+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55080 #21 (2 connections now open)
+2016-03-21T14:30:51.799+0800 I NETWORK  [conn21] end connection 127.0.0.1:55080 (1 connection now open)
+2016-03-21T14:33:19.790+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55176 #22 (2 connections now open)
+2016-03-21T14:33:29.725+0800 I NETWORK  [conn22] end connection 127.0.0.1:55176 (1 connection now open)
+2016-03-21T14:34:35.971+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55204 #23 (2 connections now open)
+2016-03-21T14:34:54.689+0800 I NETWORK  [conn23] end connection 127.0.0.1:55204 (1 connection now open)
+2016-03-21T14:34:55.907+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55216 #24 (2 connections now open)
+2016-03-21T14:36:22.430+0800 I NETWORK  [conn24] end connection 127.0.0.1:55216 (1 connection now open)
+2016-03-21T14:36:23.717+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55240 #25 (2 connections now open)
+2016-03-21T14:43:08.986+0800 I COMMAND  [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 35ms
+700:M 21 Mar 14:43:31.886 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 14:43:31.918 * Background saving started by pid 1780
+1780:C 21 Mar 14:43:32.083 * DB saved on disk
+700:M 21 Mar 14:43:32.336 * Background saving terminated with success
+2016-03-21T14:45:56.048+0800 I NETWORK  [conn25] end connection 127.0.0.1:55240 (1 connection now open)
+2016-03-21T14:45:59.403+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:56064 #26 (2 connections now open)
+2016-03-21T14:47:28.529+0800 I NETWORK  [conn26] end connection 127.0.0.1:56064 (1 connection now open)
+2016-03-21T14:47:30.088+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:56117 #27 (2 connections now open)
+700:M 21 Mar 14:48:33.003 * 100 changes in 300 seconds. Saving...
+700:M 21 Mar 14:48:33.003 * Background saving started by pid 1855
+1855:C 21 Mar 14:48:33.005 * DB saved on disk
+700:M 21 Mar 14:48:33.107 * Background saving terminated with success
+2016-03-21T14:55:51.976+0800 I NETWORK  [conn27] end connection 127.0.0.1:56117 (1 connection now open)

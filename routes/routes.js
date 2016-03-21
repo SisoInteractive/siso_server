@@ -11,7 +11,7 @@ module.exports = function (app) {
     var login = require('./login');
     var api = require('./api');
 
-    //  dependencies
+    //  dependencie
     var page = require('../lib/page');
     var Entry = require('../controllers/entry');
 

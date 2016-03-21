@@ -5,8 +5,11 @@ var schema = new mongoose.Schema({
     title: String,
     body: String,
     date: Date,
+    order: Number, //  to specified the detail page's html file
     homeThumbSrc: String,
+    homeThumbMobileSrc: String,
     caseStudiesThumbSrc: String,
+    caseStudiesThumbMobileSrc: String,
     toHome: Boolean,
     toHomeOrder: Number
 });

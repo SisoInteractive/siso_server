@@ -62,14 +62,13 @@ exports.editForm = function (req, res, next) {
  * */
 exports.submit = function (app) {
     return function (req, res, next) {
+        //  specified upload dir
+        var uploadDir = app.get('root') + '/uploads';
+        if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+
         //  handle incoming form data
         var form = new formidable.IncomingForm();
-        form.uploadDir = app.get('root') + '/uploads';
-
-        //  rename file
-        form.on('file', function(field, file) {
-            fs.rename(file.path, form.uploadDir + '/' + file.name);
-        });
+        form.uploadDir = uploadDir;
 
         //  parse request body data
         form.parse(req, function (err, fields, files) {
@@ -77,6 +76,15 @@ exports.submit = function (app) {
 
             //console.dir(fields);
             //console.dir(files);
+
+            //  rename file
+            for (var i in files) {
+                //  create union file name
+                if (files[i].size) {
+                    files[i].name = new Date().getTime() + Math.random().toFixed(5)*100000 + '.' + files[i].type.split('/')[1];
+                    fs.rename(files[i].path, form.uploadDir + '/' + files[i].name);
+                }
+            }
 
             var entry = {
                 type: fields.entry_type,
@@ -91,7 +99,10 @@ exports.submit = function (app) {
             switch (fields.entry_type) {
                 case 'case':
                     entry.homeThumbSrc = '/uploads/' + files.entry_home.name;
+                    entry.homeThumbMobileSrc = '/uploads/' + files.entry_home_mobile.name;
                     entry.caseStudiesThumbSrc = '/uploads/' + files.entry_case.name;
+                    entry.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
+                    entry.order = fields.entry_order;
                     entry = new Case(entry);
                     break;
                 case 'career':
@@ -135,13 +146,18 @@ exports.update = function (app) {
 
                 var column = req.param('column');
 
+                //  specified upload dir
+                var uploadDir = app.get('root') + '/uploads';
+                if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+
                 //  handle incoming form data
                 var form = new formidable.IncomingForm();
                 form.uploadDir = app.get('root') + '/uploads';
 
                 //  rename file
                 form.on('file', function(field, file) {
-                    fs.rename(file.path, form.uploadDir + '/' + file.name);
+                    //  create union file name
+                    fs.rename(file.path, form.uploadDir + '/' + new Date().getTime() + Math.random().toFixed(5)*100000 + '.' + file.type.split('/')[1]);
                 });
 
                 //  updating
@@ -152,7 +168,9 @@ exports.update = function (app) {
                     doc.body = fields.entry_body;
 
                     var oldHomeThumbSrc;
+                    var oldHomeThumbMobileSrc;
                     var oldCaseStudiesThumbSrc;
+                    var oldCaseStudiesThumbMobileSrc;
 
                     //  is files needs to update
                     if (files.entry_home) {
@@ -160,9 +178,23 @@ exports.update = function (app) {
                         doc.homeThumbSrc = '/uploads/' + files.entry_home.name;
                     }
 
+                    if (files.entry_home_mobile) {
+                        oldHomeThumbMobileSrc = doc.homeThumbMobileSrc;
+                        doc.homeThumbMobileSrc = '/uploads/' + files.entry_home_mobile.name;
+                    }
+
                     if (files.entry_case) {
                         oldCaseStudiesThumbSrc = doc.caseStudiesThumbSrc;
                         doc.caseStudiesThumbSrc = '/uploads/' + files.entry_case.name;
+                    }
+
+                    if (files.entry_case_mobile) {
+                        oldCaseStudiesThumbMobileSrc = doc.caseStudiesThumbMobileSrc;
+                        doc.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
+                    }
+
+                    if (fileds.entry_order) {
+                        entry.order = fields.entry_order;
                     }
 
                     //  update
@@ -176,8 +208,20 @@ exports.update = function (app) {
                             });
                         }
 
+                        if (files.entry_home_mobile) {
+                            fileHelper.removeFileAsync(app.get('root')+oldHomeThumbSrc, function (err) {
+                                if (err) return next(err);
+                            });
+                        }
+
                         if (files.entry_case) {
-                            fileHelper.removeFileAsync(app.get('root')+oldCaseStudiesThumbSrc, function (err) {
+                            fileHelper.removeFileAsync(app.get('root')+oldHomeThumbMobileSrc, function (err) {
+                                if (err) return next(err);
+                            });
+                        }
+
+                        if (files.entry_case_mobile) {
+                            fileHelper.removeFileAsync(app.get('root')+oldCaseStudiesThumbMobileSrc, function (err) {
                                 if (err) return next(err);
                             });
                         }
@@ -221,6 +265,12 @@ exports.delete = function (app) {
                             if (err) return next(err);
                         });
                         fileHelper.removeFileAsync(app.get('root')+ entry.caseStudiesThumbSrc, function (err) {
+                            if (err) return next(err);
+                        });
+                        fileHelper.removeFileAsync(app.get('root')+ entry.homeThumbMobileSrc, function (err) {
+                            if (err) return next(err);
+                        });
+                        fileHelper.removeFileAsync(app.get('root')+ entry.caseStudiesThumbMobileSrc, function (err) {
                             if (err) return next(err);
                         });
                     }
