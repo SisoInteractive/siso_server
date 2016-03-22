@@ -35,7 +35,7 @@ input {
 
 .header {
   position: relative;
-  background: url("../images/bg-header.png") repeat-x;
+  background: #2e2e2e url("../images/bg-header.png") repeat-x;
 }
 
 .header-bd {

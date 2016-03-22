@@ -27,8 +27,14 @@ var entry = {
                 var homeImg = $('input[name="entry_home"]');
                 if (!homeImg.val()) msg.push('HOME首页图必须上传');
 
+                var homeMobileImg = $('input[name="entry_home_mobile"]');
+                if (!homeImg.val()) msg.push('HOME首页 Mobile图必须上传');
+
                 var caseImg = $('input[name="entry_case"]');
                 if (!caseImg.val()) msg.push('Case studies图图必须上传');
+
+                var caseMobileImg = $('input[name="entry_case_mobile"]');
+                if (!caseImg.val()) msg.push('Case studies Mobile图必须上传');
             }
 
 
@@ -121,11 +127,8 @@ var entry = {
     },
 
     init: function () {
-        var column = location.search.match(/column=(\w+)/);
-        column = column ? column[1] : '';
-        var status = location.search.match(/status=(\w+)/);
-        status = status ? status[1] : '';
-
+        var column = $('input[name="entry_type"]').val();
+        var status = $('input[name="entry_status"]').val();
 
         switch (column) {
             case 'case':
