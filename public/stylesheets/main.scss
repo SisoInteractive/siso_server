@@ -48,7 +48,8 @@ input {
 // header
 .header {
   position: relative;
-  background: url("../images/bg-header.png") repeat-x;
+  $header-height: 55px;
+  background: #2e2e2e url("../images/bg-header.png") repeat-x;
 }
 
 .header-bd {

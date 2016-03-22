@@ -12,7 +12,11 @@
             <input type="text" name="entry_title" placeholder="主题" class="title" value="<%=entry.title%>"/>
         </p>
         <p>
-            <textarea class="textarea" name="entry_body" placeholder="正文"><%=entry.body%></textarea>
+            <% if (state.richEditor == true) { %>
+                <textarea id="summernote" name="entry_body" style="display: none"><%=entry.body%></textarea>
+            <% } else { %>
+                <textarea class="textarea" name="entry_body" placeholder="正文"><%=entry.body%></textarea>
+            <% }%>
         </p>
 
         <!-- if is case studies -->
@@ -35,13 +39,14 @@
             </p>
             <p class="file">
                 <span>详情页html文件索引:</span>
-                <input type="number" name="entry_order" min="0" placeholder="详情页对应的order, 数字" style="width: 200px;"/>
+                <input type="number" name="entry_order" min="0" placeholder="详情页对应的order, 数字" style="width: 200px;" value="<%=entry.order%>" />
             </p>
         <% }%>
         <p>
             <button type="submit" class="ui button blue entry-submit">创建</button>
         </p>
         <input name="entry_type" type="hidden" value="<%= state.column %>"/>
+        <input name="entry_status" type="hidden" value="<%= state.status %>"/>
         <input name="entry_date" type="hidden"/>
         <% if (entry.id) { %>
         <input name="entry_id" type="hidden" value="<%= entry.id %>"/>

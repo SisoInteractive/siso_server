@@ -16,7 +16,8 @@ exports.form = function (req, res, next) {
     var context = {
         state: {
             state: 'entry',
-            column: column
+            column: column,
+            richEditor: true
         },
         title: '创建文章',
         entry: {
@@ -44,7 +45,9 @@ exports.editForm = function (req, res, next) {
             var context = {
                 state: {
                     state: 'entry',
-                    column: column
+                    column: column,
+                    status: 'edit',
+                    richEditor: true
                 },
                 entry: entry,
                 title: '编辑文章'
@@ -154,18 +157,21 @@ exports.update = function (app) {
                 var form = new formidable.IncomingForm();
                 form.uploadDir = app.get('root') + '/uploads';
 
-                //  rename file
-                form.on('file', function(field, file) {
-                    //  create union file name
-                    fs.rename(file.path, form.uploadDir + '/' + new Date().getTime() + Math.random().toFixed(5)*100000 + '.' + file.type.split('/')[1]);
-                });
-
                 //  updating
                 form.parse(req, function (err, fields, files) {
                     if (err) return next(err);
                     console.log('updating..');
                     doc.title = fields.entry_title;
                     doc.body = fields.entry_body;
+
+                    //  rename file
+                    for (var i in files) {
+                        //  create union file name
+                        if (files[i].size) {
+                            files[i].name = new Date().getTime() + Math.random().toFixed(5)*100000 + '.' + files[i].type.split('/')[1];
+                            fs.rename(files[i].path, form.uploadDir + '/' + files[i].name);
+                        }
+                    }
 
                     var oldHomeThumbSrc;
                     var oldHomeThumbMobileSrc;
@@ -193,8 +199,8 @@ exports.update = function (app) {
                         doc.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
                     }
 
-                    if (fileds.entry_order) {
-                        entry.order = fields.entry_order;
+                    if (fields.entry_order) {
+                        doc.order = fields.entry_order;
                     }
 
                     //  update
@@ -209,13 +215,13 @@ exports.update = function (app) {
                         }
 
                         if (files.entry_home_mobile) {
-                            fileHelper.removeFileAsync(app.get('root')+oldHomeThumbSrc, function (err) {
+                            fileHelper.removeFileAsync(app.get('root')+oldHomeThumbMobileSrc, function (err) {
                                 if (err) return next(err);
                             });
                         }
 
                         if (files.entry_case) {
-                            fileHelper.removeFileAsync(app.get('root')+oldHomeThumbMobileSrc, function (err) {
+                            fileHelper.removeFileAsync(app.get('root')+oldCaseStudiesThumbSrc, function (err) {
                                 if (err) return next(err);
                             });
                         }
