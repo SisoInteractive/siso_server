@@ -2,15 +2,14 @@
 <script src="/scripts/semantic.js"></script>
 <script src="/scripts/main.js"></script>
 <!-- loaded when need -->
-<% if (state.state == 'home') { %>
-<script src="/scripts/home.js"></script>
-<% }%>
-<% if (state.state == 'admin') { %>
-<script src="/scripts/admin.js"></script>
-<% }%>
+<% if (state.state == 'home') { %> <script src="/scripts/home.js"></script> <%}%>
+<% if (state.state == 'admin') { %> <script src="/scripts/admin.js"></script> <%}%>
 <% if (state.state == 'entry') { %>
-<script src="/scripts/entry.js"></script>
+    <% if (state.richEditor) { %>
+        <script src="/scripts/bootstrap.js"></script>
+        <script src="/scripts/summernote.js"></script>
+    <% }%>
+
+    <script src="/scripts/entry.js"></script>
 <% }%>
-<% if (state.state == 'user.login') { %>
-<script src="/scripts/login.js"></script>
-<% }%>
+<% if (state.state == 'user.login') { %> <script src="/scripts/login.js"></script> <%}%>

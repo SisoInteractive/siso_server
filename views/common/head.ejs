@@ -10,15 +10,15 @@
 <link rel="stylesheet" href="/stylesheets/main.css"/>
 
 <!-- loaded when need -->
-<% if (state.state == 'home') { %>
-    <link rel="stylesheet" href="/stylesheets/home.css"/>
-<% }%>
-<% if (state.state == 'admin') { %>
-    <link rel="stylesheet" href="/stylesheets/admin.css"/>
-<% }%>
+<% if (state.state == 'home') { %> <link rel="stylesheet" href="/stylesheets/home.css"/> <%}%>
+<% if (state.state == 'admin') { %> <link rel="stylesheet" href="/stylesheets/admin.css"/> <%}%>
+
 <% if (state.state == 'entry') { %>
     <link rel="stylesheet" href="/stylesheets/create.css"/>
+    <% if (state.richEditor) { %>
+        <link rel="stylesheet" href="/stylesheets/bootstrap.css"/>
+        <link rel="stylesheet" href="/stylesheets/summernote.css"/>
+    <% }%>
 <% }%>
-<% if (state.state == 'user' || state.state == 'user.login') { %>
-    <link rel="stylesheet" href="/stylesheets/user.css"/>
-<% }%>
+
+<% if (state.state == 'user' || state.state == 'user.login') { %> <link rel="stylesheet" href="/stylesheets/user.css"/> <%}%>

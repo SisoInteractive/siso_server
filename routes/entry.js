@@ -16,7 +16,8 @@ exports.form = function (req, res, next) {
     var context = {
         state: {
             state: 'entry',
-            column: column
+            column: column,
+            richEditor: true
         },
         title: '创建文章',
         entry: {
@@ -45,7 +46,8 @@ exports.editForm = function (req, res, next) {
                 state: {
                     state: 'entry',
                     column: column,
-                    status: 'edit'
+                    status: 'edit',
+                    richEditor: true
                 },
                 entry: entry,
                 title: '编辑文章'
@@ -198,7 +200,7 @@ exports.update = function (app) {
                     }
 
                     if (fields.entry_order) {
-                        entry.order = fields.entry_order;
+                        doc.order = fields.entry_order;
                     }
 
                     //  update

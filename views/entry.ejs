@@ -12,7 +12,11 @@
             <input type="text" name="entry_title" placeholder="主题" class="title" value="<%=entry.title%>"/>
         </p>
         <p>
-            <textarea class="textarea" name="entry_body" placeholder="正文"><%=entry.body%></textarea>
+            <% if (state.richEditor == true) { %>
+                <textarea id="summernote" name="entry_body" style="display: none"><%=entry.body%></textarea>
+            <% } else { %>
+                <textarea class="textarea" name="entry_body" placeholder="正文"><%=entry.body%></textarea>
+            <% }%>
         </p>
 
         <!-- if is case studies -->
