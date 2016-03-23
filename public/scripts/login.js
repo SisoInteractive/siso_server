@@ -35,11 +35,11 @@ var login = {
         );
 
         //  stop the form from submitting normally
-        $('.ui.form').submit(function(){
-            return false;
-        });
+        $('.ui.form').submit(function(){ return false; });
 
         function submit() {
+            $('.btn-submit').prop('disabled', true);
+
             $.ajax({
                 url: 'http://localhost:4000/user/login',
                 method: 'POST',
@@ -58,6 +58,8 @@ var login = {
                     console.log('data:', data);
                     console.log('textStatus:', textStatus);
                     console.log('jqXHR:', jqXHR);
+                    $('.ui.form').form('add errors', ['账号或密码不正确']);
+                    $('.btn-submit').prop('disabled', false);
                 }
             });
         }

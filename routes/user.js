@@ -71,4 +71,20 @@ exports.logout = function (req, res, next) {
 };
 
 exports.update = function (req, res, next) {
+    var nickname = req.param('nickname');
+    if (!nickname) {
+        res.status(400);
+        return res.send({result: 'Invalid nickname'});
+    }
+
+    req.user.nickname = nickname;
+    req.user.update(function (err) {
+        if (err) {
+            res.status(500);
+            return res.send({result: 500});
+        }
+
+        res.status(200);
+        return res.send({result: 'Success changed nickname'});
+    });
 };

@@ -7,11 +7,11 @@
 <% } %>
 
 <div class="entry">
-    <form method="post" enctype="multipart/form-data" action="/entry">
-        <p class="ui fluid input">
+    <form class="ui form" method="post" enctype="multipart/form-data" action="/entry">
+        <p class="ui fluid input big field">
             <input type="text" name="entry_title" placeholder="主题" class="title" value="<%=entry.title%>"/>
         </p>
-        <p>
+        <p class="field">
             <% if (state.richEditor == true) { %>
                 <textarea id="summernote" name="entry_body" style="display: none"><%=entry.body%></textarea>
             <% } else { %>
@@ -21,26 +21,28 @@
 
         <!-- if is case studies -->
         <% if (state.column == 'case') { %>
-            <p class="file">
-                <span>HOME 首页图:</span>
-                <input type="file" name="entry_home"/>
-            </p>
-            <p class="file">
-                <span>HOME 首页图 Mobile:</span>
-                <input type="file" name="entry_home_mobile"/>
-            </p>
-            <p class="file">
-                <span>Case studies图:</span>
-                <input type="file" name="entry_case"/>
-            </p>
-            <p class="file">
-                <span>Case studies图 Mobile:</span>
-                <input type="file" name="entry_case_mobile"/>
-            </p>
-            <p class="file">
-                <span>详情页html文件索引:</span>
-                <input type="number" name="entry_order" min="0" placeholder="详情页对应的order, 数字" style="width: 200px;" value="<%=entry.order%>" />
-            </p>
+            <div class="ui grid">
+                <div class="eight wide column field file">
+                    <span>HOME 首页图:</span>
+                    <input type="file" name="entry_home"/>
+                </div>
+                <div class="eight wide column field file">
+                    <span>HOME 首页图 Mobile:</span>
+                    <input type="file" name="entry_home_mobile"/>
+                </div>
+                <div class="eight wide column field file">
+                    <span>Case studies图:</span>
+                    <input type="file" name="entry_case"/>
+                </div>
+                <div class="eight wide column field file">
+                    <span>Case studies图 Mobile:</span>
+                    <input type="file" name="entry_case_mobile"/>
+                </div>
+                <div class="eight wide column field file">
+                    <span>详情页html文件索引:</span>
+                    <input type="number" name="entry_order" min="0" placeholder="详情页对应的order, 数字" style="width: 225px;" value="<%=entry.order%>" />
+                </div>
+            </div>
         <% }%>
         <p>
             <button type="submit" class="ui button blue entry-submit">创建</button>
@@ -51,6 +53,7 @@
         <% if (entry.id) { %>
         <input name="entry_id" type="hidden" value="<%= entry.id %>"/>
         <% } %>
+        <div class="ui error message"></div>
     </form>
 </div>
 

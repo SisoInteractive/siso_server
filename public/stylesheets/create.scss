@@ -39,4 +39,14 @@
       margin-right: 10px;
     }
   }
+
+  .grid { margin-top: 15px; }
+
+  .column {
+    padding: 5px!important;
+
+    * {
+      vertical-align: middle!important;
+    }
+  }
 }

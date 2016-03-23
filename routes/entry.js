@@ -73,6 +73,9 @@ exports.submit = function (app) {
         var form = new formidable.IncomingForm();
         form.uploadDir = uploadDir;
 
+        //  entry obj
+        var entry = {};
+
         //  parse request body data
         form.parse(req, function (err, fields, files) {
             if (err) return next(err);
@@ -89,7 +92,7 @@ exports.submit = function (app) {
                 }
             }
 
-            var entry = {
+            entry = {
                 type: fields.entry_type,
                 date: new Date(fields.entry_date),
                 title: fields.entry_title,
@@ -117,13 +120,25 @@ exports.submit = function (app) {
                 default:
                     return next(new Error('Invalid entry type'));
             }
+        });
 
-            //  save
+        //  error
+        form.on('error', function(err) {
+            return next(err);
+        });
+
+        //  aborted
+        form.on('aborted', function() {
+            res.redirect('/entry?state=400');
+        });
+
+        //  save
+        form.on('end', function() {
             entry.save(function (err) {
                 if (err) return next(err);
                 console.log('entry saved');
                 res.status(201);
-                res.redirect('back');
+                res.redirect('/entry?state=201');
             });
         });
     }
@@ -235,6 +250,16 @@ exports.update = function (app) {
                         //  redirect
                         res.redirect('/admin');
                     });
+                });
+
+                //  error
+                form.on('error', function(err) {
+                    return next(err);
+                });
+
+                //  aborted
+                form.on('aborted', function() {
+                    res.redirect('back');
                 });
             });
         });

@@ -2,11 +2,6 @@
 
 "use strict";
 
-//  limit browser drag move
-document.addEventListener('touchmove', function (e) {
-    e.preventDefault();
-},true);
-
 var app = {
     searchBar: {
         init: function () {
@@ -34,6 +29,25 @@ var app = {
             $('body').click(function () {
                 $('.header-search').addClass('hide');
             });
+        }
+    },
+
+    message: {
+        show: function (msg, type, delay) {
+            $('.message-wrap .message').addClass(type).append(msg);
+
+            if (delay) {
+                setTimeout(function () {
+                    app.message.toggle();
+
+                    setTimeout(function () {
+                        app.message.toggle();
+                    }, delay);
+                }, 400);
+            }
+        },
+        toggle: function () {
+            $('.message-wrap .message').transition('slide down');
         }
     },
 

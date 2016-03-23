@@ -246,3 +246,16 @@ input {
 .wrap-404 p {
   color: #333;
 }
+
+//  message
+.message-wrap {
+  position: fixed;
+  left: 50%;
+  top: 100px;
+
+  .message {
+    display: inline-block;
+    position: relative;
+    left: -50%;
+  }
+}

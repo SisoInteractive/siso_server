@@ -34,3 +34,12 @@
 .entry .file span {
   margin-right: 10px;
 }
+.entry .grid {
+  margin-top: 15px;
+}
+.entry .column {
+  padding: 5px !important;
+}
+.entry .column * {
+  vertical-align: middle !important;
+}
