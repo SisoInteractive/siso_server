@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "basic-auth": "^1.0.3",
     "bcryptjs": "^2.3.0",
     "body-parser": "~1.13.2",
     "connect-redis": "^3.0.2",
