@@ -49,7 +49,7 @@ Entry.delete = function (model, id, fn) {
 Entry.getRange = function (model, from, perpage, fn) {
     model
         .find({})
-        .sort({date: 'desc'})
+        .sort({order: 1})
         .skip(from)
         .limit(perpage)
         .exec(function (err, entries) {
@@ -67,7 +67,15 @@ Entry.count = function (req, fn) {
 };
 
 Entry.getAll = function (model, fn) {
-    model.find({}, function (err, entries) {
+    var result = model.find({});
+
+    if (model.column == 'case') {
+        result = result.sort({order: 1});
+    } else {
+        result = result.sort({date: -1});
+    }
+
+    result.exec(function (err, entries) {
         if (err) return fn(err);
         fn(null, entries);
     });

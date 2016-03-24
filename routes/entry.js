@@ -73,9 +73,6 @@ exports.submit = function (app) {
         var form = new formidable.IncomingForm();
         form.uploadDir = uploadDir;
 
-        //  entry obj
-        var entry = {};
-
         //  parse request body data
         form.parse(req, function (err, fields, files) {
             if (err) return next(err);
@@ -86,13 +83,14 @@ exports.submit = function (app) {
             //  rename file
             for (var i in files) {
                 //  create union file name
-                if (files[i].size) {
+                if (i.indexOf('entry_') >= 0 && files[i].size) {
+                    console.log(i);
                     files[i].name = new Date().getTime() + Math.random().toFixed(5)*100000 + '.' + files[i].type.split('/')[1];
                     fs.rename(files[i].path, form.uploadDir + '/' + files[i].name);
                 }
             }
 
-            entry = {
+            var entry = {
                 type: fields.entry_type,
                 date: new Date(fields.entry_date),
                 title: fields.entry_title,
@@ -120,20 +118,7 @@ exports.submit = function (app) {
                 default:
                     return next(new Error('Invalid entry type'));
             }
-        });
 
-        //  error
-        form.on('error', function(err) {
-            return next(err);
-        });
-
-        //  aborted
-        form.on('aborted', function() {
-            res.redirect('/entry?state=400');
-        });
-
-        //  save
-        form.on('end', function() {
             entry.save(function (err) {
                 if (err) return next(err);
                 console.log('entry saved');
@@ -250,16 +235,6 @@ exports.update = function (app) {
                         //  redirect
                         res.redirect('/admin');
                     });
-                });
-
-                //  error
-                form.on('error', function(err) {
-                    return next(err);
-                });
-
-                //  aborted
-                form.on('aborted', function() {
-                    res.redirect('back');
                 });
             });
         });

@@ -98,8 +98,8 @@ var entry = {
             var msg = '';
             var type = '';
 
-            if (state[1] == '201') { msg = '<p>创建成功</p>'; type = 'positive'; }
-            if (state[1] == '400') { msg = '<p>创建失败</p>'; type = 'negative'; }
+            if (state && state[1] == '201') { msg = '<p>创建成功</p>'; type = 'positive'; }
+            if (state && state[1] == '400') { msg = '<p>创建失败</p>'; type = 'negative'; }
             //  show message
             if (msg) app.message.show(msg, type, 2500);
         }
