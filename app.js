@@ -29,7 +29,7 @@ mongoose.connect('mongodb://localhost/siso_server');
 
 //  middleware setup
 var corsOptions = {
-    origin: 'http://localhost:63342'
+    origin: 'http://sisobrand.com'
 };
 app.use(cors(corsOptions));
 app.use(logger('dev'));
