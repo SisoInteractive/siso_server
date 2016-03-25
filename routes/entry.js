@@ -72,6 +72,7 @@ exports.submit = function (app) {
         //  handle incoming form data
         var form = new formidable.IncomingForm();
         form.uploadDir = uploadDir;
+        form.maxFieldsSize = 10000 * 1024 * 1024;
 
         //  parse request body data
         form.parse(req, function (err, fields, files) {
@@ -156,6 +157,7 @@ exports.update = function (app) {
                 //  handle incoming form data
                 var form = new formidable.IncomingForm();
                 form.uploadDir = app.get('root') + '/uploads';
+                form.maxFieldsSize = 10000 * 1024 * 1024;
 
                 //  updating
                 form.parse(req, function (err, fields, files) {
