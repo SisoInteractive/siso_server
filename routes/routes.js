@@ -20,9 +20,9 @@ module.exports = function (app) {
     //  entry
     router.get('/entry', entry.form(app));
     router.get('/entry/:id', entry.editForm(app));
-    router.post('/entry', entry.submit);
-    router.put('/entry/:id/pushHome', entry.pushHome);
+    router.post('/entry', entry.submit(app));
     router.put('/entry/:id', entry.update(app));
+    router.put('/entry/:id/pushHome', entry.pushHome);
     router.delete('/entry/:id', entry.delete);
 
     //  admin

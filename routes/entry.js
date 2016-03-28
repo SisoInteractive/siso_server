@@ -73,69 +73,73 @@ exports.editForm = function (app) {
  *  - careers
  *  - news
  * */
-exports.submit = function (req, res, next) {
-    //  specified upload dir
-    var uploadDir = app.get('root') + '/uploads';
-    if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+exports.submit = function (app) {
+    return function (req, res, next) {
+        //  specified upload dir
+        var uploadDir = app.get('root') + '/uploads';
+        if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 
-    //  handle incoming form data
-    var form = new formidable.IncomingForm();
-    form.uploadDir = uploadDir;
-    form.maxFieldsSize = 10000 * 1024 * 1024;
+        //  handle incoming form data
+        var form = new formidable.IncomingForm();
+        form.uploadDir = uploadDir;
+        form.maxFieldsSize = 10000 * 1024 * 1024;
 
-    //  parse request body data
-    form.parse(req, function (err, fields, files) {
-        if (err) return next(err);
-
-        //console.dir(fields);
-        //console.dir(files);
-
-        //  rename file
-        for (var i in files) {
-            //  create union file name
-            if (i.indexOf('entry_') >= 0 && files[i].size) {
-                console.log(i);
-                files[i].name = new Date().getTime() + Math.random().toFixed(5)*100000 + '.' + files[i].type.split('/')[1];
-                fs.rename(files[i].path, form.uploadDir + '/' + files[i].name);
-            }
-        }
-
-        var entry = {
-            type: fields.entry_type,
-            date: new Date(fields.entry_date),
-            title: fields.entry_title,
-            body: fields.entry_body,
-            toHome: false,
-            toHomeOrder: 0
-        };
-
-        //  column match via entry_type field
-        switch (fields.entry_type) {
-            case 'case':
-                entry.homeThumbSrc = '/uploads/' + files.entry_home.name;
-                entry.homeThumbMobileSrc = '/uploads/' + files.entry_home_mobile.name;
-                entry.caseStudiesThumbSrc = '/uploads/' + files.entry_case.name;
-                entry.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
-                entry.order = fields.entry_order;
-                entry = new Case(entry);
-                break;
-            case 'career':
-                entry = new Career(entry);
-                break;
-            case 'news':
-                entry = new News(entry);
-                break;
-            default:
-                return next(new Error('Invalid entry type'));
-        }
-
-        entry.save(function (err) {
+        //  parse request body data
+        form.parse(req, function (err, fields, files) {
             if (err) return next(err);
-            console.log('entry saved');
-            res.status(201);
-            res.redirect('/entry?state=201');
+
+            //console.dir(fields);
+            //console.dir(files);
+
+            //  rename file
+            for (var i in files) {
+                //  create union file name
+                if (i.indexOf('entry_') >= 0 && files[i].size) {
+                    console.log(i);
+                    files[i].name = new Date().getTime() + Math.random().toFixed(5)*100000 + '.' + files[i].type.split('/')[1];
+                    fs.rename(files[i].path, form.uploadDir + '/' + files[i].name);
+                }
+            }
+
+            var entry = {
+                type: fields.entry_type,
+                date: new Date(fields.entry_date),
+                title: fields.entry_title,
+                body: fields.entry_body,
+                toHome: false,
+                toHomeOrder: 0,
+                pushHome: false,
+                pushHomeOrder: 0
+            };
+
+            //  column match via entry_type field
+            switch (fields.entry_type) {
+                case 'case':
+                    entry.homeThumbSrc = '/uploads/' + files.entry_home.name;
+                    entry.homeThumbMobileSrc = '/uploads/' + files.entry_home_mobile.name;
+                    entry.caseStudiesThumbSrc = '/uploads/' + files.entry_case.name;
+                    entry.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
+                    entry.order = fields.entry_order;
+                    entry = new Case(entry);
+                    break;
+                case 'career':
+                    entry = new Career(entry);
+                    break;
+                case 'news':
+                    entry = new News(entry);
+                    break;
+                default:
+                    return next(new Error('Invalid entry type'));
+            }
+
+            entry.save(function (err) {
+                if (err) return next(err);
+                console.log('entry saved');
+                res.status(201);
+                res.redirect('/entry?state=201');
+            });
         });
-    });
+    }
 };
 
 exports.update = function (app) {
@@ -261,8 +265,9 @@ exports.pushHome = function (req, res, next) {
         return;
     }
 
-    Entry.countPushHome(req, function (count) {
-        if (count >= 5) {
+    Entry.countPushHome(req, function (err, count) {
+        if (err) return next(err);
+        if (req.param('status') == 'push' && count >= 5) {
             res.status(501);
             return res.send({message: 'Failed: push home amount is fulled'});
         }

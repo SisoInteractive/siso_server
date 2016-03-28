@@ -33,21 +33,15 @@ var app = {
     },
 
     message: {
+        timer: null,
         show: function (msg, type, delay) {
-            $('.message-wrap .message').addClass(type).append(msg);
-
-            if (delay) {
-                setTimeout(function () {
-                    app.message.toggle();
-
-                    setTimeout(function () {
-                        app.message.toggle();
-                    }, delay);
-                }, 400);
-            }
-        },
-        toggle: function () {
-            $('.message-wrap .message').transition('slide down');
+            var that = this;
+            clearTimeout(that.timer);
+            $('.message-wrap').addClass('active');
+            $('.message-wrap .message').addClass(type).html(msg);
+            that.timer = setTimeout(function () {
+                $('.message-wrap').removeClass('active');
+            }, delay || 0);
         }
     },
 

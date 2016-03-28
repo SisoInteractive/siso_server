@@ -14,11 +14,13 @@ var admin = {
                     location.reload();
                 },
                 error: function (xhr,status,err) {
+                    btn.prop('disabled', false);
                     if (xhr.status == 501) {
-                        app.message.show(xhr.responseText.message, 'negative', 2500);
+                        app.message.show('同时允许推送最多五篇文章', 'negative', 2500);
+                        console.log(xhr);
                     }
                     else if (xhr.status == 404) {
-                        console.error(JSON.parse(xhr.responseText).message);
+                        console.error(JSON.parse(xhr.responseJSON).message);
                     }
                 }
             });

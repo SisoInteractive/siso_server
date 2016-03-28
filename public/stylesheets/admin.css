@@ -1,0 +1,6 @@
+.entry-list tr:hover {
+  background: #fafafa;
+}
+.entry-list .ui.label {
+  margin-left: 5px;
+}
