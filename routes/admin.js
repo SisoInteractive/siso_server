@@ -21,6 +21,7 @@ exports.list = function (app) {
             //  init page tags
             var column = req.param('column');
             context = tagsHelper(req.path, column, context);
+            context.state.column = column;
 
             //  skip the page.from, and limit page.perpage to get the entries
             Entry.getRange(model, req.page.from, req.page.perpage, function (err, entries) {

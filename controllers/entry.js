@@ -66,6 +66,13 @@ Entry.count = function (req, fn) {
     });
 };
 
+Entry.countPushHome = function (req, fn) {
+    modelHelper(req, function (err, model) {
+        if (err) return fn(err);
+        model.count({pushHome: true}, fn);
+    });
+};
+
 Entry.getAll = function (model, fn) {
     var result = model.find({});
 

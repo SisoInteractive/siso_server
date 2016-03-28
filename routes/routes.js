@@ -15,13 +15,14 @@ module.exports = function (app) {
     var Entry = require('../controllers/entry');
 
     //  restrict login (except /user/login, /api at beginning)
-    router.all(/(?=^\/(?!user\/login))(?=^\/(?!api))/, auth.restrict);
+    router.all(/(?=^\/(?!user\/login))(?=^\/(?!api))/, auth.restrict(app));
 
     //  entry
     router.get('/entry', entry.form(app));
     router.get('/entry/:id', entry.editForm(app));
     router.post('/entry', entry.submit);
-    router.put('/entry/:id', entry.update);
+    router.put('/entry/:id/pushHome', entry.pushHome);
+    router.put('/entry/:id', entry.update(app));
     router.delete('/entry/:id', entry.delete);
 
     //  admin
@@ -30,7 +31,7 @@ module.exports = function (app) {
     //  user
     router.get('/user', user.home(app));
     router.get('/user/login', user.loginForm(app));
-    router.post('/user/login', user.loginSubmit);
+    router.post('/user/login', user.loginSubmit(app));
     router.get('/user/logout', user.logout);
     router.put('/user', user.update);
 

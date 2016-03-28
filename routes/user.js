@@ -37,32 +37,34 @@ exports.loginForm = function (app) {
     }
 };
 
-exports.loginSubmit = function (req, res, next) {
-    var name = req.param('name');
-    var pass = req.param('pass');
-    var remember = req.param('remember');
-    //console.log(req.body, name, pass);
-    User.authenticate(name, pass, function (err, user) {
-        if (err) return next(err);
-        if (user) {
-            req.session.uid = user.id;
+exports.loginSubmit = function (app) {
+    return function (req, res, next) {
+        var name = req.param('name');
+        var pass = req.param('pass');
+        var remember = req.param('remember');
+        //console.log(req.body, name, pass);
+        User.authenticate(name, pass, function (err, user) {
+            if (err) return next(err);
+            if (user) {
+                req.session.uid = user.id;
 
-            if (remember == 'true') {
-                var time = new Date();
-                req.session.cookie.expires = new Date(time.getFullYear(), time.getMonth(), time.getDate()+7)
+                if (remember == 'true') {
+                    var time = new Date();
+                    req.session.cookie.expires = new Date(time.getFullYear(), time.getMonth(), time.getDate()+7)
+                } else {
+                    req.session.cookie.expires = false;
+                }
+
+                var homePage = req.protocol + '://' + req.get('path');
+                var redirectUrl = req.session.redirectUrl || homePage;
+                res.status(200);
+                res.send({message: 'OK: login success', redirect: redirectUrl});
             } else {
-                req.session.cookie.expires = false;
+                res.status(401);
+                res.send({message: 'Unauthorized: wrong username or password'});
             }
-
-            var homePage = req.protocol + '://' + req.get('host');
-            var redirectUrl = req.session.redirectUrl || homePage;
-            res.status(200);
-            res.send({message: 'OK: login success', redirect: redirectUrl});
-        } else {
-            res.status(401);
-            res.send({message: 'Unauthorized: wrong username or password'});
-        }
-    })
+        })
+    }
 };
 
 exports.logout = function (req, res, next) {
