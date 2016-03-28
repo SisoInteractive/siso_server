@@ -5,6 +5,11 @@
     <% include common/head.ejs %>
 </head>
 <body>
+    <!-- global variables -->
+    <% if (globalVariables) { %>
+        <input type="hidden" name="gv_path" value="<%=globalVariables.path%>"/>
+    <%}%>
+    <!-- end global variables -->
     <% include common/header.ejs %>
 
     <div class="main ui container">

@@ -1,30 +1,39 @@
 var User = require('../lib/user');
 
-exports.home = function (req, res, next) {
-    var context = {
-        state: {
-            state: 'user',
-            title: '欢迎回来'
-        }
-    };
-    res.status(200);
-    res.render('page', context);
-};
-
-exports.loginForm = function (req, res) {
-    console.log(req.session.redirectTo);
-    if (!req.user) {
+exports.home = function (app) {
+    return function (req, res, next) {
         var context = {
             state: {
-                state: 'user.login',
-                title: '登录系统'
+                state: 'user',
+                title: '欢迎回来'
+            },
+            globalVariables: {
+                path: app.get('path')
             }
         };
         res.status(200);
         res.render('page', context);
-    } else {
-        res.status(302);
-        res.redirect('back');
+    }
+};
+
+exports.loginForm = function (app) {
+    return function (req, res) {
+        if (!req.user) {
+            var context = {
+                state: {
+                    state: 'user.login',
+                    title: '登录系统'
+                },
+                globalVariables: {
+                    path: app.get('path')
+                }
+            };
+            res.status(200);
+            res.render('page', context);
+        } else {
+            res.status(302);
+            res.redirect('back');
+        }
     }
 };
 
@@ -71,13 +80,17 @@ exports.logout = function (req, res, next) {
 };
 
 exports.update = function (req, res, next) {
-    var nickname = req.param('nickname');
-    if (!nickname) {
+    if (req.params.length == 0) {
         res.status(400);
         return res.send({result: 'Invalid nickname'});
     }
 
-    req.user.nickname = nickname;
+    var nickname = req.param('nickname');
+    var password = req.param('password');
+
+    nickname && (req.user.nickname = nickname);
+    password && (req.user.pass = password);
+
     req.user.update(function (err) {
         if (err) {
             res.status(500);

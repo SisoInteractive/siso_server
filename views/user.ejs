@@ -6,4 +6,59 @@
             <h2><i class="write icon"></i>更改昵称</h2>
         </a>
     </div>
+    <div class="ui eight cards fast-entry">
+        <a class="orange card change-password">
+            <h2><i class="write icon"></i>更改密码</h2>
+        </a>
+    </div>
 </div>
+
+<!-- modals -->
+<div class="ui modal small modal-nickname">
+    <i class="close icon"></i>
+    <div class="header">
+        更改昵称
+    </div>
+    <div class="content">
+        <div class="ui input fluid">
+            <input type="text" name="new-nickname" class="new-nickname" placeholder="新昵称"/>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            取消
+        </div>
+        <div class="ui positive right labeled icon button">
+            确认
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
+
+<div class="ui modal small modal-password">
+    <i class="close icon"></i>
+    <div class="header">
+        更改密码
+    </div>
+    <div class="content">
+        <form class="ui form passwordValid">
+            <div class="ui input fluid field">
+                <input type="password" name="pass" class="new-password" placeholder="新密码"/>
+            </div>
+            <div class="ui input fluid field">
+                <input type="password" name="repass" class="password_rename" placeholder="重复输入新密码"/>
+            </div>
+            <div class="ui error message"></div>
+        </form>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            取消
+        </div>
+        <div class="ui positive right labeled icon button">
+            确认
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
+<!-- end modals -->

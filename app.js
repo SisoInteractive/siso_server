@@ -19,9 +19,17 @@ var app = express();
 var csrfProtection = csurf({ cookie: true });
 
 //  app config
+var environment = process.env.NODE_ENV;
 app.set('root', path.join(__dirname, 'public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+if (environment == 'production') {
+    app.set('path', '120.26.48.94:4000');
+}
+
+if (environment == 'development') {
+    app.set('path', 'localhost:4000');
+}
 
 //  mongodb
 var mongoose = require('mongoose');
@@ -29,7 +37,7 @@ mongoose.connect('mongodb://localhost/siso_server');
 
 //  middleware setup
 var corsOptions = {
-    origin: 'http://sisobrand.com'
+    origin: true
 };
 app.use(cors(corsOptions));
 app.use(logger('dev'));
