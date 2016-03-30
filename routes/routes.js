@@ -7,10 +7,11 @@ module.exports = function (app) {
     var index = require('./index');
     var entry = require('./entry');
     var admin = require('./admin');
+    var photo = require('./photo');
     var user = require('./user');
     var api = require('./api');
 
-    //  dependencie
+    //  dependencies
     var page = require('../lib/page');
     var Entry = require('../controllers/entry');
 
@@ -28,6 +29,12 @@ module.exports = function (app) {
     //  admin
     router.get('/admin', page(Entry.count), admin.list(app));
 
+    //  photo
+    router.get('/photo', photo.form(app));
+    router.post('/photo', photo.submit(app));
+    router.put('/photo/:id', photo.update(app));
+    router.delete('/photo/:id', photo.delete(app));
+
     //  user
     router.get('/user', user.home(app));
     router.get('/user/login', user.loginForm(app));
@@ -37,6 +44,7 @@ module.exports = function (app) {
 
     //  api
     router.get('/api/v1/:column', api.list);
+    router.get('/api/v1/photo', api.photo);
 
     //  home
     router.get('/', index.home(app));

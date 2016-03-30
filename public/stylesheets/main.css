@@ -33,7 +33,7 @@ input {
   outline: none;
 }
 
-.header {
+header.header {
   position: relative;
   background: #2e2e2e url("../images/bg-header.png") repeat-x;
 }

@@ -1,4 +1,5 @@
 var Entry = require('../controllers/entry');
+var Photo = require('../controllers/photo');
 var modelHelper = require('../lib/modelHelper');
 
 exports.list = function (req, res, next) {
@@ -19,5 +20,17 @@ exports.list = function (req, res, next) {
             res.status(200);
             res.send({result: entries});
         });
+    });
+};
+
+exports.photo = function (req, res, next) {
+    Photo.getAll(function (err, photos) {
+        if (err) return next(err);
+        if (!photos) {
+            res.status(200);
+            return res.send({result: []});
+        }
+        res.status(200);
+        return res.send({result: photos});
     });
 };

@@ -1,0 +1,46 @@
+.add-member {
+  margin-top: -50px!important;
+}
+
+//  list
+.photo-list {
+  margin-top: 20px!important;
+
+  .card {
+    &.active {
+      box-shadow: 0 0 0 1px #d4d4d5,0 2px 0 0 #db2828,0 1px 3px 0 #d4d4d5!important;
+    }
+  }
+
+  .extra {
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
+//  modal
+.modal.edit-member {
+  .upload-photo {
+    overflow: hidden;
+    position: relative;
+
+    input {
+      opacity: 0;
+      font-size: 120px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+    }
+  }
+
+  .photo-process-tips {
+    display: none;
+  }
+
+  .field input {
+    width: 400px;
+  }
+}
+

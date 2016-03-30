@@ -55,7 +55,7 @@ exports.loginSubmit = function (app) {
                     req.session.cookie.expires = false;
                 }
 
-                var homePage = req.protocol + '://' + req.get('path');
+                var homePage = req.protocol + '://' + app.get('path');
                 var redirectUrl = req.session.redirectUrl || homePage;
                 res.status(200);
                 res.send({message: 'OK: login success', redirect: redirectUrl});
