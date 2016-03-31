@@ -110,7 +110,7 @@ var photo = {
         //  init upload validation
         $('.ui.form')
             .form({
-                onSuccess: submit,
+                onSuccess: submitMember,
                 fields: {
                     name: {
                         rules: [
@@ -138,43 +138,6 @@ var photo = {
                     }
                 }
             });
-
-        function submit () {
-            if (photo.status == 'create' && !$('input[name="photo"]').val()) {
-                $('.ui.form').form('add errors', ['请上传照片']);
-                return false;
-            }
-
-            var formData = new FormData();
-
-            if (photo.status == 'create' || $('input[name="photo"]').val()) {
-                formData.append('photoSrc', $('input[name="photo"]')[0].files[0]);
-            }
-
-            formData.append('name', $('input[name="name"]').val());
-            formData.append('position', $('input[name="position"]').val());
-            formData.append('positionEnglish', $('input[name="positionEnglish"]').val());
-
-            $.ajax({
-                url: ('http://' + $('input[name="gv_path"]').val() + '/photo')
-                + (photo.status == 'create' ? '' : '/' + photo.currentEditId + '?_method=PUT'),
-                method: 'POST',
-                cache: false,
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (d) {
-                    $('.edit-member').modal('hide');
-                    app.message.show(photo.status == 'create' ? '创建成功' : '更新成功', 'positive', 2500);
-                    if (d.data) { createItemDom(JSON.parse(d.data)); }
-                },
-                error: function (e) {
-                    $('.edit-member').modal('hide');
-                    app.message.show(photo.status == 'create' ? '创建失败' : '更新失败' + '服务器开了个小差', 'negative', 2500);
-                    console.log(e);
-                }
-            });
-        }
     }
 };
 
@@ -206,6 +169,44 @@ function readURLtoPreviewImg(input) {
     }
 }
 
+function submitMember () {
+    if (photo.status == 'create' && !$('input[name="photo"]').val()) {
+        $('.ui.form').form('add errors', ['请上传照片']);
+        return false;
+    }
+
+    var formData = new FormData();
+
+    if (photo.status == 'create' || $('input[name="photo"]').val()) {
+        formData.append('photoSrc', $('input[name="photo"]')[0].files[0]);
+    }
+
+    formData.append('name', $('input[name="name"]').val());
+    formData.append('position', $('input[name="position"]').val());
+    formData.append('positionEnglish', $('input[name="positionEnglish"]').val());
+
+    $.ajax({
+        url: ('http://' + $('input[name="gv_path"]').val() + '/photo')
+        + (photo.status == 'create' ? '' : '/' + photo.currentEditId + '?_method=PUT'),
+        method: 'POST',
+        cache: false,
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (d) {
+            $('.edit-member').modal('hide');
+            app.message.show(photo.status == 'create' ? '创建成功' : '更新成功', 'positive', 2500);
+            if (photo.status == 'create') { createItemDom(JSON.parse(d.data)); }
+            if (photo.status == 'edit') { updateItem(JSON.parse(d.data)); }
+        },
+        error: function (e) {
+            $('.edit-member').modal('hide');
+            app.message.show(photo.status == 'create' ? '创建失败' : '更新失败' + '服务器开了个小差', 'negative', 2500);
+            console.log(e);
+        }
+    });
+}
+
 function createItemDom (data) {
     var dom =
     '<div class="card member" data-id="' + data._id + '">' +
@@ -227,3 +228,10 @@ function createItemDom (data) {
     $('.photo-list').append(dom);
 }
 
+function updateItem (item) {
+    var itemDom = $('.card[data-id=' + item._id + ']');
+    itemDom.find('.image img').attr('src', item.photoSrc);
+    itemDom.find('.header').text(item.name);
+    itemDom.find('.position').text(item.position);
+    itemDom.find('.englishPosition').text(item.positionEnglish);
+}

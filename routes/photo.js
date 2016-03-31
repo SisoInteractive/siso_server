@@ -19,33 +19,6 @@ exports.form = function (app) {
             }
         };
 
-        //context.memberList = [
-        //    {
-        //        name: '徐晓萍',
-        //        position: '行政',
-        //        positionEnglish: 'Administrative',
-        //        photoSrc: 'http://www.sisobrand.com/siso_official_angular/dist/public/assets/images/people/xjp.jpg'
-        //    },
-        //    {
-        //        name: '熊雅玲',
-        //        position: '财政',
-        //        positionEnglish: 'Finance',
-        //        photoSrc: 'http://www.sisobrand.com/siso_official_angular/dist/public/assets/images/people/xyl.jpg'
-        //    },
-        //    {
-        //        name: '李金贵',
-        //        position: '设计',
-        //        positionEnglish: 'Designer',
-        //        photoSrc: 'http://www.sisobrand.com/siso_official_angular/dist/public/assets/images/people/jg.jpg'
-        //    },
-        //    {
-        //        name: '大卫',
-        //        position: '设计',
-        //        positionEnglish: 'Designer',
-        //        photoSrc: 'http://www.sisobrand.com/siso_official_angular/dist/public/assets/images/people/dwei.jpg'
-        //    }
-        //],
-
         Photo.getAll(function (err, photos) {
             if (err) return next(err);
             context.memberList = photos;
@@ -155,7 +128,7 @@ exports.update = function (app) {
                         if (err) return next(err);
 
                         res.status(201);
-                        res.send({message: 'Success created'});
+                        res.send({message: 'Success updated', data: JSON.stringify(doc)});
                     });
                 });
             });
