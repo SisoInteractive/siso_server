@@ -9,7 +9,8 @@ function Photo (obj) {
 
 Photo.prototype.save = function (fn) {
     var photo = this;
-    this.model.create(photo, function (err) {
+    this.model.create(photo, function (err, photoData) {
+        photo._id = photoData._id;
         if (err) return fn(err);
         fn();
     });
@@ -28,9 +29,12 @@ Photo.delete = function (model, id, fn) {
 };
 
 Photo.getAll = function (fn) {
-    photoModel.find({}, function (err, photos) {
+    photoModel.find({order: {$gt: -1}}).sort({order: 1}).exec(function (err, photos) {
         if (err) return fn(err);
-        fn(null, photos);
+        photoModel.find({order: -1}).exec(function (err, photosUnsorted) {
+            if (err) return fn(err);
+            fn(null, photos.concat(photosUnsorted));
+        });
     });
 };
 

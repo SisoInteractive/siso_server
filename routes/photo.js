@@ -68,6 +68,7 @@ exports.submit = function (app) {
             var photoData = new Photo(photo);
             photoData.save(function (err) {
                 if (err) return next(err);
+                photo._id = photoData._id;
                 res.status(201);
                 res.send({message: 'Success created', data: JSON.stringify(photo)});
             });
@@ -168,10 +169,41 @@ exports.delete = function (app) {
                     res.status(404);
                     res.send({message: 'Entry not exist'});
                 }
-
-                // remove
             });
         });
     }
+};
+
+exports.sort = function (app) {
+    return function (req, res, next) {
+        var members = req.body.members;
+        if (!members) {
+            res.status(400);
+            return res.send('Wrong value');
+        }
+
+        req.params.column = 'photo';
+        modelHelper(req, function (err, model) {
+            if (err) {
+                res.status(500);
+                return res.send('Server Internal Error');
+            }
+
+            var countNum = 0;
+
+            members.forEach(function (member) {
+                model.update({_id: member._id}, {$set: {order: member.order}}, function () {
+                    if (counter()) {
+                        res.status(201);
+                        res.send({ message: 'Success to updated member\'s sort'});
+                    }
+                });
+            });
+
+            function counter () {
+                return ++countNum / members.length == 1;
+            }
+        });
+    };
 };
 

@@ -32,6 +32,7 @@ module.exports = function (app) {
     //  photo
     router.get('/photo', photo.form(app));
     router.post('/photo', photo.submit(app));
+    router.post('/photo/sort', photo.sort(app));
     router.put('/photo/:id', photo.update(app));
     router.delete('/photo/:id', photo.delete(app));
 
