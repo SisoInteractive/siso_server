@@ -47,9 +47,33 @@ Entry.delete = function (model, id, fn) {
 };
 
 Entry.getRange = function (model, from, perpage, fn) {
-    model
-        .find({})
-        .sort({order: 1})
+    var column = model.column;
+    var pushHomeEntries = [];
+
+    if (column == 'case') {
+        //  get push home entries
+        model
+            .find({ pushHome: true})
+            .exec(function (err, entries) {
+                if (err) return fn(err);
+                pushHomeEntries = entries;
+                //  get another entries
+                var skipAmount = from >= perpage ? from - pushHomeEntries.length : from;
+                if (skipAmount < 0) skipAmount = 0;
+                model.find({ pushHome: false})
+                    .sort({date: -1})
+                    .skip(skipAmount)
+                    .limit(perpage - pushHomeEntries.length)
+                    .exec(function (err, entries) {
+                        if (err) return fn(err);
+                        fn(null, pushHomeEntries.concat(entries));
+                    });
+            });
+        return;
+    }
+
+    model.find({})
+        .sort({date: -1})
         .skip(from)
         .limit(perpage)
         .exec(function (err, entries) {
@@ -66,19 +90,41 @@ Entry.count = function (req, fn) {
     });
 };
 
-Entry.getAll = function (model, fn) {
-    var result = model.find({});
+Entry.countPushHome = function (req, fn) {
+    modelHelper(req, function (err, model) {
+        if (err) return fn(err);
+        model.count({pushHome: true}, fn);
+    });
+};
 
-    if (model.column == 'case') {
-        result = result.sort({order: 1});
-    } else {
-        result = result.sort({date: -1});
+Entry.getAll = function (model, fn) {
+    var column = model.column;
+    var pushHomeEntries = [];
+
+    if (column == 'case') {
+        //  get push home entries
+        model
+            .find({ pushHome: true})
+            .exec(function (err, entries) {
+                if (err) return fn(err);
+                pushHomeEntries = entries;
+                //  get another entries
+                model.find({ pushHome: false})
+                    .sort({date: -1})
+                    .exec(function (err, entries) {
+                        if (err) return fn(err);
+                        fn(null, pushHomeEntries.concat(entries));
+                    });
+            });
+        return;
     }
 
-    result.exec(function (err, entries) {
-        if (err) return fn(err);
-        fn(null, entries);
-    });
+    model.find({})
+        .sort({date: -1})
+        .exec(function (err, entries) {
+            if (err) return fn(err);
+            fn(null, entries);
+        });
 };
 
 module.exports = Entry;

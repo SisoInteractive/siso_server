@@ -1,59 +1,70 @@
 var User = require('../lib/user');
 
-exports.home = function (req, res, next) {
-    var context = {
-        state: {
-            state: 'user',
-            title: '欢迎回来'
-        }
-    };
-    res.status(200);
-    res.render('page', context);
-};
-
-exports.loginForm = function (req, res) {
-    console.log(req.session.redirectTo);
-    if (!req.user) {
+exports.home = function (app) {
+    return function (req, res, next) {
         var context = {
             state: {
-                state: 'user.login',
-                title: '登录系统'
+                state: 'user',
+                title: '欢迎回来'
+            },
+            globalVariables: {
+                path: app.get('path')
             }
         };
         res.status(200);
         res.render('page', context);
-    } else {
-        res.status(302);
-        res.redirect('back');
     }
 };
 
-exports.loginSubmit = function (req, res, next) {
-    var name = req.param('name');
-    var pass = req.param('pass');
-    var remember = req.param('remember');
-    //console.log(req.body, name, pass);
-    User.authenticate(name, pass, function (err, user) {
-        if (err) return next(err);
-        if (user) {
-            req.session.uid = user.id;
-
-            if (remember == 'true') {
-                var time = new Date();
-                req.session.cookie.expires = new Date(time.getFullYear(), time.getMonth(), time.getDate()+7)
-            } else {
-                req.session.cookie.expires = false;
-            }
-
-            var homePage = req.protocol + '://' + req.get('host');
-            var redirectUrl = req.session.redirectUrl || homePage;
+exports.loginForm = function (app) {
+    return function (req, res) {
+        if (!req.user) {
+            var context = {
+                state: {
+                    state: 'user.login',
+                    title: '登录系统'
+                },
+                globalVariables: {
+                    path: app.get('path')
+                }
+            };
             res.status(200);
-            res.send({message: 'OK: login success', redirect: redirectUrl});
+            res.render('page', context);
         } else {
-            res.status(401);
-            res.send({message: 'Unauthorized: wrong username or password'});
+            res.status(302);
+            res.redirect('back');
         }
-    })
+    }
+};
+
+exports.loginSubmit = function (app) {
+    return function (req, res, next) {
+        var name = req.param('name');
+        var pass = req.param('pass');
+        var remember = req.param('remember');
+        //console.log(req.body, name, pass);
+        User.authenticate(name, pass, function (err, user) {
+            if (err) return next(err);
+            if (user) {
+                req.session.uid = user.id;
+
+                if (remember == 'true') {
+                    var time = new Date();
+                    req.session.cookie.expires = new Date(time.getFullYear(), time.getMonth(), time.getDate()+7)
+                } else {
+                    req.session.cookie.expires = false;
+                }
+
+                var homePage = req.protocol + '://' + app.get('path');
+                var redirectUrl = req.session.redirectUrl || homePage;
+                res.status(200);
+                res.send({message: 'OK: login success', redirect: redirectUrl});
+            } else {
+                res.status(401);
+                res.send({message: 'Unauthorized: wrong username or password'});
+            }
+        })
+    }
 };
 
 exports.logout = function (req, res, next) {
@@ -71,13 +82,17 @@ exports.logout = function (req, res, next) {
 };
 
 exports.update = function (req, res, next) {
-    var nickname = req.param('nickname');
-    if (!nickname) {
+    if (req.params.length == 0) {
         res.status(400);
         return res.send({result: 'Invalid nickname'});
     }
 
-    req.user.nickname = nickname;
+    var nickname = req.param('nickname');
+    var password = req.param('password');
+
+    nickname && (req.user.nickname = nickname);
+    password && (req.user.pass = password);
+
     req.user.update(function (err) {
         if (err) {
             res.status(500);

@@ -41,7 +41,7 @@ var login = {
             $('.btn-submit').prop('disabled', true);
 
             $.ajax({
-                url: 'http://localhost:4000/user/login',
+                url: 'http://' + $('input[name="gv_path"]').val() + '/user/login',
                 method: 'POST',
                 data: {
                     name: $('input[name="name"]').val(),

@@ -33,7 +33,7 @@ input {
   outline: none;
 }
 
-.header {
+header.header {
   position: relative;
   background: #2e2e2e url("../images/bg-header.png") repeat-x;
 }
@@ -212,9 +212,19 @@ input {
   position: fixed;
   left: 50%;
   top: 100px;
+  display: none;
 }
 .message-wrap .message {
   display: inline-block;
   position: relative;
   left: -50%;
+  -webkit-transition: opacity .6s;
+  transition: opacity .6s;
+  opacity: 0;
+}
+.message-wrap.active {
+  display: block;
+}
+.message-wrap.active .message {
+  opacity: 1;
 }

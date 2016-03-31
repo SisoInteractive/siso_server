@@ -9,9 +9,14 @@
     <tbody>
     <% entries.forEach(function (entry){ %>
         <tr>
-            <td><%= entry.formatedDate %></td>
+            <td><%= entry.formatedDate %><% if(entry.pushHome){%><a class="ui blue horizontal label">推</a><%}%></td>
             <td><a href=""><%= entry.title %></a></td>
             <td>
+                <% if (state.column=='case' && entry.pushHome) { %>
+                    <button class="ui blue basic button push-home" data-href="/entry/<%= entry._id %>/pushHome?_method=PUT&column=<%= entry.type %>&status=unpush">取消推送</button>
+                <% } else if (state.column=='case') { %>
+                    <button class="ui blue basic button push-home" data-href="/entry/<%= entry._id %>/pushHome?_method=PUT&column=<%= entry.type %>&status=push">推送首页</button>
+                <% } %>
                 <a class="ui blue basic button" href="/entry/<%= entry._id %>?column=<%= entry.type %>&status=edit">编辑</a>
                 <button class="ui red basic button entry-delete" data-href="/entry/<%= entry._id %>?column=<%= entry.type %>">删除</button>
             </td>

@@ -5,6 +5,11 @@
     <% include common/head.ejs %>
 </head>
 <body>
+    <!-- global variables -->
+    <% if (globalVariables) { %>
+        <input type="hidden" name="gv_path" value="<%=globalVariables.path%>"/>
+    <%}%>
+    <!-- end global variables -->
     <% include common/header.ejs %>
 
     <div class="main ui container">
@@ -16,6 +21,9 @@
         <% }%>
         <% if (state.state == 'entry') { %>
             <% include entry.ejs %>
+        <% }%>
+        <% if (state.state == 'photo') { %>
+            <% include photo.ejs %>
         <% }%>
         <% if (state.state == 'user') { %>
             <% include user.ejs %>

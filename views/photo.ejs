@@ -1,0 +1,81 @@
+<h1><%= title %></h1>
+
+<div class="content">
+    <button class="ui blue button add-member right floated">添加成员</button>
+</div>
+
+<div class="ui five cards photo-list">
+    <% memberList.forEach(function (member) { %>
+        <div class="card member" data-id="<%= member._id %>">
+            <div class="image">
+                <img src="<%= member.photoSrc %>">
+            </div>
+            <div class="content">
+                <div class="header"><%= member.name %></div>
+                <div class="meta">
+                    <a><span class="position"><%= member.position %></span> / <span class="englishPosition"><%= member.positionEnglish %></span></a>
+                </div>
+            </div>
+            <div class="extra content">
+                <span class="right floated operator-delete" data-href="http://<%= globalVariables.path+'/photo/'+member._id %>?_method=DELETE"><i class="trash icon"></i>删除</span>
+                <span class="operator-edit"><i class="write square icon"></i>编辑</span>
+            </div>
+        </div>
+    <%  })%>
+</div>
+
+<!-- data -->
+<div class="ui modal edit-member">
+    <i class="close icon"></i>
+    <div class="header">编辑成员</div>
+    <div class="content">
+        <div class="ui form">
+            <div class="ui two column grid">
+                <div class="column">
+                    <div class="ui form">
+                        <div class="field">
+                            <label>照片: <span>455px*455px</span></label>
+                            <button class="ui blue button upload-photo"><span class="title">上传照片</span><input type="file" name="photo"/></button>
+                            <span class="photo-process-tips">已选择照片</span>
+                        </div>
+                        <div class="field">
+                            <label>姓名:</label>
+                            <input type="text" name="name" placeholder="请填写姓名" autocomplete="autocomplete" />
+                        </div>
+                        <div class="field">
+                            <label>职位:</label>
+                            <input type="text" name="position" placeholder="请填写职位" autocomplete="autocomplete" />
+                        </div>
+                        <div class="field">
+                            <label>职位(英文):</label>
+                            <input type="text" name="positionEnglish" placeholder="请填写职位的英文" autocomplete="autocomplete" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="photo-viewer">
+                        <p><label for="">照片预览</label></p>
+                        <img src="" alt="" width="300" height="300"/>
+                    </div>
+                </div>
+            </div>
+            <div class="ui error message"></div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            取消
+        </div>
+        <div class="ui positive right labeled icon button">
+            确认
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
+<!-- end data -->
+
+<script>
+    var memberList = '<%- memberListToString() %>';
+    console.log(memberList);
+</script>

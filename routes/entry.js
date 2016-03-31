@@ -8,53 +8,63 @@ var formidable = require('formidable');
 var fs = require('fs');
 var fileHelper = require('../lib/fileHelper');
 
-exports.form = function (req, res, next) {
-    var column = req.param('column');
-    if (!column) column = req.session.entryColumnHistory || 'case';
-    if (['case', 'career', 'news'].indexOf(column) == -1) return next();
+exports.form = function (app) {
+    return function (req, res, next) {
+        var column = req.param('column');
+        if (!column) column = req.session.entryColumnHistory || 'case';
+        if (['case', 'career', 'news'].indexOf(column) == -1) return next();
 
-    var context = {
-        state: {
-            state: 'entry',
-            column: column,
-            richEditor: true
-        },
-        title: '创建文章',
-        entry: {
-            title: '',
-            body: ''
-        }
-    };
+        var context = {
+            state: {
+                state: 'entry',
+                column: column,
+                richEditor: true
+            },
+            globalVariables: {
+                path: app.get('path')
+            },
+            title: '创建文章',
+            entry: {
+                title: '',
+                body: ''
+            }
+        };
 
-    //  init page tags
-    context = tagsHelper(req.path, column, context);
-    req.session.entryColumnHistory = column;
+        //  init page tags
+        context = tagsHelper(req.path, column, context);
+        req.session.entryColumnHistory = column;
 
-    res.status(200);
-    res.render('page', context);
+        res.status(200);
+        res.render('page', context);
+    }
 };
 
-exports.editForm = function (req, res, next) {
-    var id = req.param('id');
-    modelHelper(req, function (err, model) {
-        if (err) return next(err);
-        model.findById(id, function (err, entry) {
+exports.editForm = function (app) {
+    return function (req, res, next) {
+        var id = req.param('id');
+        modelHelper(req, function (err, model) {
             if (err) return next(err);
-            if (!entry) return next();
-            var column = req.param('column');
-            var context = {
-                state: {
-                    state: 'entry',
-                    column: column,
-                    status: 'edit',
-                    richEditor: true
-                },
-                entry: entry,
-                title: '编辑文章'
-            };
-            res.render('page', context);
+            model.findById(id, function (err, entry) {
+                if (err) return next(err);
+                if (!entry) return next();
+                var column = req.param('column');
+                var context = {
+                    state: {
+                        state: 'entry',
+                        column: column,
+                        status: 'edit',
+                        richEditor: true
+                    },
+                    globalVariables: {
+                        path: app.get('path')
+                    },
+                    entry: entry,
+                    title: '编辑文章'
+                };
+                res.render('page', context);
+            });
         });
-    });
+    }
 };
 
 /**
@@ -72,6 +82,7 @@ exports.submit = function (app) {
         //  handle incoming form data
         var form = new formidable.IncomingForm();
         form.uploadDir = uploadDir;
+        form.maxFieldsSize = 10000 * 1024 * 1024;
 
         //  parse request body data
         form.parse(req, function (err, fields, files) {
@@ -96,7 +107,9 @@ exports.submit = function (app) {
                 title: fields.entry_title,
                 body: fields.entry_body,
                 toHome: false,
-                toHomeOrder: 0
+                toHomeOrder: 0,
+                pushHome: false,
+                pushHomeOrder: 0
             };
 
             //  column match via entry_type field
@@ -156,6 +169,7 @@ exports.update = function (app) {
                 //  handle incoming form data
                 var form = new formidable.IncomingForm();
                 form.uploadDir = app.get('root') + '/uploads';
+                form.maxFieldsSize = 10000 * 1024 * 1024;
 
                 //  updating
                 form.parse(req, function (err, fields, files) {
@@ -241,52 +255,84 @@ exports.update = function (app) {
     }
 };
 
-exports.delete = function (app) {
-    return function (req, res, next) {
-        //  Is valid _id object format?
-        var id = req.param('id');
-        id = id ? id.match(/^[0-9a-fA-F]{24}$/) : '';
+exports.pushHome = function (req, res, next) {
+    var id = req.param('id');
+    id = id ? id.match(/^[0-9a-fA-F]{24}$/) : '';
 
-        if (!id) {
-            res.status(400);
-            res.send({message: 'Invalid entry id'});
-            return;
+    if (!id) {
+        res.status(400);
+        res.send({message: 'Invalid entry id'});
+        return;
+    }
+
+    Entry.countPushHome(req, function (err, count) {
+        if (err) return next(err);
+        if (req.param('status') == 'push' && count >= 5) {
+            res.status(501);
+            return res.send({message: 'Failed: push home amount is fulled'});
         }
 
         modelHelper(req, function (err, model) {
             if (err) return next(err);
-
-            Entry.delete(model, id, function (err, entry) {
+            //  find entry
+            model.findOne({_id: id}, function (err, doc) {
                 if (err) return next(err);
-                var column = req.param('column');
-
-                if (entry) {
-                    res.status(204);
-                    res.send({message: 'Removed entry'});
-
-                    //  remove case's related file
-                    if (column == 'case') {
-                        //  remove old files after updated
-                        fileHelper.removeFileAsync(app.get('root')+ entry.homeThumbSrc, function (err) {
-                            if (err) return next(err);
-                        });
-                        fileHelper.removeFileAsync(app.get('root')+ entry.caseStudiesThumbSrc, function (err) {
-                            if (err) return next(err);
-                        });
-                        fileHelper.removeFileAsync(app.get('root')+ entry.homeThumbMobileSrc, function (err) {
-                            if (err) return next(err);
-                        });
-                        fileHelper.removeFileAsync(app.get('root')+ entry.caseStudiesThumbMobileSrc, function (err) {
-                            if (err) return next(err);
-                        });
-                    }
-                } else {
-                    res.status(404);
-                    res.send({message: 'Entry not exist'});
-                }
-
-                // remove
+                if (!doc) return next(new Error({message: 'Entry not found'}));
+                doc.pushHome = !doc.pushHome;
+                doc.save(function (err) {
+                    if (err) return next(err);
+                    res.status(200);
+                    res.send({message: 'Success' + (doc.pushHome ? '' : 'un') + 'pushHome'});
+                });
             });
         });
+    });
+};
+
+exports.delete = function (req, res, next) {
+    //  Is valid _id object format?
+    var id = req.param('id');
+    id = id ? id.match(/^[0-9a-fA-F]{24}$/) : '';
+
+    if (!id) {
+        res.status(400);
+        res.send({message: 'Invalid entry id'});
+        return;
     }
+
+    modelHelper(req, function (err, model) {
+        if (err) return next(err);
+
+        Entry.delete(model, id, function (err, entry) {
+            if (err) return next(err);
+            var column = req.param('column');
+
+            if (entry) {
+                res.status(204);
+                res.send({message: 'Removed entry'});
+
+                //  remove case's related file
+                if (column == 'case') {
+                    //  remove old files after updated
+                    fileHelper.removeFileAsync(app.get('root')+ entry.homeThumbSrc, function (err) {
+                        if (err) return next(err);
+                    });
+                    fileHelper.removeFileAsync(app.get('root')+ entry.caseStudiesThumbSrc, function (err) {
+                        if (err) return next(err);
+                    });
+                    fileHelper.removeFileAsync(app.get('root')+ entry.homeThumbMobileSrc, function (err) {
+                        if (err) return next(err);
+                    });
+                    fileHelper.removeFileAsync(app.get('root')+ entry.caseStudiesThumbMobileSrc, function (err) {
+                        if (err) return next(err);
+                    });
+                }
+            } else {
+                res.status(404);
+                res.send({message: 'Entry not exist'});
+            }
+
+            // remove
+        });
+    });
 };

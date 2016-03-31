@@ -1,0 +1,35 @@
+.add-member {
+  margin-top: -50px !important;
+}
+
+.photo-list {
+  margin-top: 20px !important;
+}
+.photo-list .card.active {
+  box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 #db2828, 0 1px 3px 0 #d4d4d5 !important;
+}
+.photo-list .extra span {
+  cursor: pointer;
+}
+
+.modal.edit-member .upload-photo {
+  overflow: hidden;
+  position: relative;
+}
+.modal.edit-member .upload-photo input {
+  opacity: 0;
+  font-size: 120px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+.modal.edit-member .photo-process-tips {
+  display: none;
+}
+.modal.edit-member .field input {
+  width: 400px;
+}
+.modal.edit-member label span {
+  color: #999;
+}

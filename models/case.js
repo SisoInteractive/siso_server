@@ -10,8 +10,8 @@ var schema = new mongoose.Schema({
     homeThumbMobileSrc: String,
     caseStudiesThumbSrc: String,
     caseStudiesThumbMobileSrc: String,
-    toHome: Boolean,
-    toHomeOrder: Number
+    pushHome: Boolean,
+    pushHomeOrder: Number
 });
 
 module.exports = mongoose.model('Case', schema);
