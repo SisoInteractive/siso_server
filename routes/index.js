@@ -22,9 +22,15 @@ exports.home = function (app) {
                     icon: 'add circle'
                 },
                 {
+                    title: '照片管理',
+                    url: '/photo',
+                    color: 'olive',
+                    icon: 'photo'
+                },
+                {
                     title: '个人中心',
                     url: '/user',
-                    color: 'yellow',
+                    color: 'blue',
                     icon: 'user'
                 }
             ],

@@ -70,6 +70,10 @@ exports.submit = function (app) {
         //  parse request body data
         form.parse(req, function (err, fields, files) {
             if (err) return next(err);
+            if (!files.photoSrc) {
+                res.status(400);
+                return res.send({message: 'Wrong upload value'});
+            }
 
             //  rename file
             for (var i in files) {
@@ -88,11 +92,11 @@ exports.submit = function (app) {
                 order: -1
             };
 
-            photo = new Photo(photo);
-            photo.save(function (err) {
+            var photoData = new Photo(photo);
+            photoData.save(function (err) {
                 if (err) return next(err);
                 res.status(201);
-                res.send({message: 'Success created'});
+                res.send({message: 'Success created', data: JSON.stringify(photo)});
             });
         });
     }

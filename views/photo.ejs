@@ -29,35 +29,38 @@
     <i class="close icon"></i>
     <div class="header">编辑成员</div>
     <div class="content">
-        <div class="ui two column grid">
-            <div class="column">
-                <div class="ui form">
-                    <div class="field">
-                        <label>照片:</label>
-                        <button class="ui blue button upload-photo"><span class="title">上传照片</span><input type="file" name="photo"/></button>
-                        <span class="photo-process-tips">已选择照片</span>
-                    </div>
-                    <div class="field">
-                        <label>姓名:</label>
-                        <input type="text" name="name" placeholder="请填写姓名" autocomplete="autocomplete" />
-                    </div>
-                    <div class="field">
-                        <label>职位:</label>
-                        <input type="text" name="position" placeholder="请填写职位" autocomplete="autocomplete" />
-                    </div>
-                    <div class="field">
-                        <label>职位(英文):</label>
-                        <input type="text" name="positionEnglish" placeholder="请填写职位的英文" autocomplete="autocomplete" />
+        <div class="ui form">
+            <div class="ui two column grid">
+                <div class="column">
+                    <div class="ui form">
+                        <div class="field">
+                            <label>照片: <span>455px*455px</span></label>
+                            <button class="ui blue button upload-photo"><span class="title">上传照片</span><input type="file" name="photo"/></button>
+                            <span class="photo-process-tips">已选择照片</span>
+                        </div>
+                        <div class="field">
+                            <label>姓名:</label>
+                            <input type="text" name="name" placeholder="请填写姓名" autocomplete="autocomplete" />
+                        </div>
+                        <div class="field">
+                            <label>职位:</label>
+                            <input type="text" name="position" placeholder="请填写职位" autocomplete="autocomplete" />
+                        </div>
+                        <div class="field">
+                            <label>职位(英文):</label>
+                            <input type="text" name="positionEnglish" placeholder="请填写职位的英文" autocomplete="autocomplete" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="column">
-                <div class="photo-viewer">
-                    <p><label for="">照片预览</label></p>
-                    <img src="" alt="" width="300" height="300"/>
+                <div class="column">
+                    <div class="photo-viewer">
+                        <p><label for="">照片预览</label></p>
+                        <img src="" alt="" width="300" height="300"/>
+                    </div>
                 </div>
             </div>
+            <div class="ui error message"></div>
         </div>
     </div>
     <div class="actions">

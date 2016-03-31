@@ -30,3 +30,6 @@
 .modal.edit-member .field input {
   width: 400px;
 }
+.modal.edit-member label span {
+  color: #999;
+}
