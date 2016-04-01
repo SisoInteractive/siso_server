@@ -2,7 +2,8 @@ var entry = {
     form: function (column, isEditing) {
         //  init rich editor
         $('#summernote').summernote({
-            height: 400
+            height: 400,
+            placeholder: '正文只建议使用一段文本, 字数请不要超过50个汉字 或者 30个单词, 如果发帖后文本长度不美观, 请发帖后再编辑修正'
         });
 
         //  form
