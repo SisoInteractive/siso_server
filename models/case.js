@@ -9,6 +9,7 @@ var schema = new mongoose.Schema({
     homeThumbSrc: String,
     homeThumbMobileSrc: String,
     homeBlockColor: String,
+    homeBtnColor: String,
     caseStudiesThumbSrc: String,
     caseStudiesThumbMobileSrc: String,
     pushHome: Boolean,
