@@ -120,6 +120,7 @@ exports.submit = function (app) {
                     entry.caseStudiesThumbSrc = '/uploads/' + files.entry_case.name;
                     entry.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
                     entry.homeBlockColor = fields.entry_color;
+                    entry.homeBtnColor = fields.entry_btn_color;
                     entry.order = fields.entry_order;
                     entry = new Case(entry);
                     break;
@@ -216,6 +217,10 @@ exports.update = function (app) {
 
                     if (fields.entry_color) {
                         doc.homeBlockColor = fields.entry_color;
+                    }
+
+                    if (fields.entry_btn_color) {
+                        doc.homeBtnColor = fields.entry_btn_color;
                     }
 
                     if (fields.entry_order) {
