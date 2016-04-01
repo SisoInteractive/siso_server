@@ -6,7 +6,7 @@
     <% include common/tags.ejs %>
 <% } %>
 
-<div class="entry">da
+<div class="entry">
     <form class="ui form" method="post" enctype="multipart/form-data" action="/entry">
         <p class="ui fluid input big field">
             <input type="text" name="entry_title" placeholder="主题" class="title" value="<%=entry.title%>"/>
@@ -37,6 +37,10 @@
                 <div class="column field file">
                     <span>Case studies图 Mobile:</span>
                     <input type="file" name="entry_case_mobile"/>
+                </div>
+                <div class="eight wide column field file inline">
+                    <span>HOME 首页色块颜色值:</span>
+                    <input type="text" name="entry_color" placeholder="输入rgb色值, 如: ff9900"/>
                 </div>
                 <div class="eight wide column field file">
                     <span>详情页html文件索引:</span>

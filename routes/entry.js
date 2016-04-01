@@ -119,6 +119,7 @@ exports.submit = function (app) {
                     entry.homeThumbMobileSrc = '/uploads/' + files.entry_home_mobile.name;
                     entry.caseStudiesThumbSrc = '/uploads/' + files.entry_case.name;
                     entry.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
+                    entry.homeBlockColor = fields.entry_color;
                     entry.order = fields.entry_order;
                     entry = new Case(entry);
                     break;
@@ -211,6 +212,10 @@ exports.update = function (app) {
                     if (files.entry_case_mobile) {
                         oldCaseStudiesThumbMobileSrc = doc.caseStudiesThumbMobileSrc;
                         doc.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
+                    }
+
+                    if (fields.entry_color) {
+                        doc.homeBlockColor = fields.entry_color;
                     }
 
                     if (fields.entry_order) {

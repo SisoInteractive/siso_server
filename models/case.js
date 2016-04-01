@@ -8,6 +8,7 @@ var schema = new mongoose.Schema({
     order: Number, //  to specified the detail page's html file
     homeThumbSrc: String,
     homeThumbMobileSrc: String,
+    homeBlockColor: String,
     caseStudiesThumbSrc: String,
     caseStudiesThumbMobileSrc: String,
     pushHome: Boolean,

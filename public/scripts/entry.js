@@ -77,6 +77,14 @@ var entry = {
                     }
                 ]
             };
+            validateConfig.fields['entry_color'] = {
+                rules: [
+                    {
+                        type   : 'empty',
+                        prompt : 'HOME 首页色块的色值必须指定'
+                    }
+                ]
+            };
         }
 
         form.form(validateConfig);
