@@ -54,6 +54,7 @@ Entry.getRange = function (model, from, perpage, fn) {
         //  get push home entries
         model
             .find({ pushHome: true})
+            .sort({ date: -1 })
             .exec(function (err, entries) {
                 if (err) return fn(err);
                 pushHomeEntries = entries;
@@ -105,6 +106,7 @@ Entry.getAll = function (model, fn) {
         //  get push home entries
         model
             .find({ pushHome: true})
+            .sort({ date: -1 })
             .exec(function (err, entries) {
                 if (err) return fn(err);
                 pushHomeEntries = entries;
