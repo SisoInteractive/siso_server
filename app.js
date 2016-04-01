@@ -23,7 +23,7 @@ var environment = process.env.NODE_ENV;
 app.set('root', path.join(__dirname, 'public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 if (environment == 'production') {
     app.set('path', 'admin.sisobrand.com:4000');
 }
