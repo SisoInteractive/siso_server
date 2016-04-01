@@ -12,25 +12,21 @@ exports.home = function (app) {
                 {
                     title: '文章管理',
                     url: '/admin',
-                    color: 'red',
                     icon: 'newspaper'
                 },
                 {
                     title: '创建文章',
                     url: '/entry',
-                    color: 'orange',
                     icon: 'add circle'
                 },
                 {
-                    title: '照片管理',
+                    title: '成员管理',
                     url: '/photo',
-                    color: 'olive',
                     icon: 'photo'
                 },
                 {
                     title: '个人中心',
                     url: '/user',
-                    color: 'blue',
                     icon: 'user'
                 }
             ],
