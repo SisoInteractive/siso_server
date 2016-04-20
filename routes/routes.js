@@ -44,8 +44,8 @@ module.exports = function (app) {
     router.put('/user', user.update);
 
     //  api
-    router.get('/api/v1/:column', api.list);
     router.get('/api/v1/photo', api.photo);
+    router.get('/api/v1/:column', api.list);
 
     //  home
     router.get('/', index.home(app));
