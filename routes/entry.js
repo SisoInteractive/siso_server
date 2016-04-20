@@ -195,22 +195,22 @@ exports.update = function (app) {
                     var oldCaseStudiesThumbMobileSrc;
 
                     //  is files needs to update
-                    if (files.entry_home) {
+                    if (files.entry_home && files.entry_home.size > 1000) {
                         oldHomeThumbSrc = doc.homeThumbSrc;
                         doc.homeThumbSrc = '/uploads/' + files.entry_home.name;
                     }
 
-                    if (files.entry_home_mobile) {
+                    if (files.entry_home_mobile && files.entry_home_mobile.size > 1000) {
                         oldHomeThumbMobileSrc = doc.homeThumbMobileSrc;
                         doc.homeThumbMobileSrc = '/uploads/' + files.entry_home_mobile.name;
                     }
 
-                    if (files.entry_case) {
+                    if (files.entry_case && files.entry_case.size > 1000) {
                         oldCaseStudiesThumbSrc = doc.caseStudiesThumbSrc;
                         doc.caseStudiesThumbSrc = '/uploads/' + files.entry_case.name;
                     }
 
-                    if (files.entry_case_mobile) {
+                    if (files.entry_case_mobile && files.entry_case_mobile.size > 1000) {
                         oldCaseStudiesThumbMobileSrc = doc.caseStudiesThumbMobileSrc;
                         doc.caseStudiesThumbMobileSrc = '/uploads/' + files.entry_case_mobile.name;
                     }
